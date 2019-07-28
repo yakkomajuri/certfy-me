@@ -52,7 +52,8 @@ Then, run `mongod` to start the daemon and on a new terminal window run `mongo` 
 
 On the shell, do the following:
 
-```use certfy
+```
+    use certfy
     db.createCollection('users')
 ```
 
