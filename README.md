@@ -4,6 +4,8 @@
 
 Certfy is a blockchain-based one-stop shop for creating, managing, storing and authenticating documents. Built with a strong focus on trustlessness and modularity, the platform acts as a facilitator of the interaction between its users and the Ethereum chain, rather than an intermediary. 
 
+The aim of Certfy is to act as a digital notary, helping cut down costs of registering and authenticating documents, a necessity for Intellectual Property and contracts, for example. While it focuses primarily on documents, it can authenticate any type of file, from *.pdf* to *.mp3*. Additionally, Certfy aims to provide a service that encompasses the full lifecycle of a document, making use of an intuitive UX and feature-rich dashboard to allow users to also create and store documents in a simple and trustless way.
+
 Certfy's features:
 
 1. **Simple authentication**: Verification of the authenticity of any file type.
@@ -53,17 +55,35 @@ Then, run `mongod` to start the daemon and on a new terminal window run `mongo` 
 On the shell, do the following:
 
 ```
-    use certfy
-    db.createCollection('users')
+use certfy
+db.createCollection('users')
 ```
 
 You can check that this was successful with commands `show dbs` and `show collections`.
 
+4. Start a local server
 
+To start a local server run:
 
+`npm start`
 
+This will start a server with *nodemon* running on port 80. You can change the default port on *website/www/bin*.
+
+5. Use Certfy
+
+In the browser of your choice, navigate to *localhost* to access the Certfy platform.
 
 ## Running tests
+
+To run the tests written for the Solidity smart contracts, do the following after cloning the repository:
+
+1. Navigate to *./eth*
+
+2. Ensure you have truffle installed or run `npm i -g truffle` to install it
+
+3. Run `truffle test`
+
+
 
 
 
