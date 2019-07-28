@@ -1,0 +1,127 @@
+extends layout
+
+block content
+    .content
+        .section.section-contacts
+          .row
+            .col-md-8.ml-auto.mr-auto
+              h2.text-center.title Sign a Multi-Sig registration
+              //h3.text-center.title Locate a multi-sig document and sign it
+              p.text-center.description
+                | Input the corresponding data for a document assigned to you and upload a file to verify 
+                | if it matches the registration. On clicking 'Verify' you will be prompted with the information 
+                | found about the specific document and the choice to sign it or not.
+                br
+                br
+           h5 Pick a document from your "Unsigned" list or input other details below:
+        center
+         form(name="deleteSig" method='post', action='/users/deletesig')
+           select.form-control(id = "sel" name="selector")
+            each val, index in pageData.toSign
+             option= val
+           button.btn.btn-secondary.noreload.btn-sm(onclick="loadThat()")
+              | Load info
+           button.btn.btn-secondary.noreload.btn-sm(style="margin-left: 5%;" onclick="document.deleteSig.submit();")
+              | Delete
+           br
+           br
+        form.contact-form
+                .row
+                  .col-md-12
+                    .form-group
+                      label.bmd-label-floating Document Title
+                      input.form-control(type='text', id="title")
+                    .form-group
+                      label.bmd-label-floating Index
+                      input.form-control(type='number', id="index")
+                    .form-group
+                      label.bmd-label-floating Upload file
+                     input.form-control-file(id='inp' type='file')
+                br
+                br
+                .row
+                  .col-md-4.ml-auto.mr-auto.text-center
+                    button.btn.btn-primary.btn-raised.noreload(onclick="tempCheck()")
+                      | Verify
+                   // button.btn.btn-primary.btn-raised.noreload(onclick="();" style='margin-left: 10%;')
+                      | &nbsp; Sign &nbsp;
+          center
+             br
+             h3(id="response")
+            #myProgress(style="height: 30px !important; background-color: #ddd !important; visibility: hidden;")
+               #myBar(style="height: 30px !important;  background-color: #c379fc !important; visibility: hidden;")
+            span(id="event") 
+        p(style="color: #EEEEEE;" id="hiding")
+        #tempModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                      .modal-dialog(role='document')
+                        .modal-content(style="width: 600px !important;")
+                          .modal-header
+                            h5#exampleModalLabel.modal-title The following information was found:
+                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                              span(aria-hidden='true') ×
+                          .modal-body
+                            p Address (Registrant):
+                            h5.form-control(name="emailBool" id="registrant" type="checkbox")
+                            p Description:
+                            h5.form-control(name="address" id="description")
+                            p Timestamp of registration
+                            h5.form-control(name="title" id="timestamp" )
+                            p Hash:
+                            h5.form-control(name="hash" id="hash" syle="max-width: 100px !important;")
+                            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                            button.btn.btn-primary(type='button' onClick="mySig();" data-dismiss='modal') Sign
+        #sigModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='g', aria-hidden='true')
+                      .modal-dialog(role='document')
+                        .modal-content
+                         form(name="sigForm" method='post', action='/users/sig')
+                          .modal-header
+                            h5#exampleModalLabel.modal-title Here's the information for your registration.
+                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                              span(aria-hidden='true') ×
+                          .modal-body
+                            p Document Title:
+                            input.form-control(name="title" id="mtit" style="background-color: white;" readonly)
+                            p Registrant (address which sent you this request):
+                            input.form-control(name="registrant" id="regt" style="background-color: white;" readonly)
+                            p Index:
+                            input.form-control(name="index" id="evtInd" style="background-color: white;" readonly)
+                            p Would you like us to save the index and name for you? We do not store any user information without consent.
+                            button.btn.btn-secondary(type='button', data-dismiss='modal') No, I'll do it myself
+                            button.btn.btn-primary(type='button' onClick="document.sigForm.submit();" data-dismiss='modal') Yes please
+    // Core JS Files
+    script(src='../assets/js/core/jquery.min.js')
+    script(src='/javascripts/load.js', type='text/javascript')
+    script(src='/javascripts/web3lib.js', type='text/javascript')
+    script(src='/javascripts/eth.js', type='text/javascript')
+    script(src='/javascripts/intermediate.js', type='text/javascript')
+    |   
+    script(src='../assets/js/core/popper.min.js')
+    |   
+    script(src='../assets/js/core/bootstrap-material-design.min.js')
+    |   
+    script(src='../assets/js/plugins/perfect-scrollbar.jquery.min.js')
+    // Control Center for Material Dashboard: parallax effects, scripts for the example pages etc
+    script(src='../assets/js/material-dashboard.js?v=2.1.1', type='text/javascript')
+style.
+
+    .form-control {
+      color: black !important;
+    }
+
+    #myProgress {
+      width: 100%;
+      background-color: #ddd;
+      visibility: hidden;
+    }
+
+    #myBar {
+      width: 1%;
+      height: 30px;
+      background-color: #c379fc;
+      visibility: hidden;
+    }
+
+script.
+    $(".noreload").click(function(event) {
+    event.preventDefault();
+    })

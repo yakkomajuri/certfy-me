@@ -1,0 +1,2 @@
+outside = true;
+priceNeeded = true;

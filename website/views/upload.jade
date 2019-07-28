@@ -1,0 +1,51 @@
+extends layout
+
+block content   
+
+    .content
+         center
+          h2.text-center.title Upload template
+          h4.text-center.description
+                | Drop the PDF you wish to turn into a template below 
+                br
+                br
+          form.contact-form(name="templateForm" method='post', action='/users/upload/template?usr=#{username}' enctype="multipart/form-data")
+            input.form-control-file(type='file' name="userTemplate")
+            button.btn.btn-primary.btn-raised(onclick="submit()") Upload
+          br
+          br
+          br
+          br
+          .row(align="center")
+           .col-md-12.ml-auto.mr-auto(style="margin-top: 2%; margin-left: 17%;")
+             center
+             h6 If you wish to delete your account and all associated data, please click the button below.  
+               br
+             button.btn-sm(onclick="$('#deleteModal').modal()") Delete Account
+        #deleteModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                      .modal-dialog(role='document')
+                        .modal-content
+                         form(name="deleteForm" method='post', action='/users/delete')
+                          .modal-header
+                            h5#exampleModalLabel.modal-title Delete account?
+                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                              span(aria-hidden='true') ×
+                          .modal-body
+                            p This action cannot be undone.
+                            button.btn.btn-secondary(type='button', data-dismiss='modal') Nah, I'll keep it
+                            button.btn.btn-primary(type='button' onClick="document.deleteForm.submit();" data-dismiss='modal') DELETE
+
+
+    script(src='../assets/js/core/jquery.min.js')
+    script(src='/javascripts/load.js', type='text/javascript')
+    script(src='/javascripts/web3lib.js', type='text/javascript')
+    script(src='/javascripts/eth.js', type='text/javascript')
+    script(src='/javascripts/intermediate.js', type='text/javascript')
+    |   
+    script(src='../assets/js/core/popper.min.js')
+    |   
+    script(src='../assets/js/core/bootstrap-material-design.min.js')
+    |   
+    script(src='../assets/js/plugins/perfect-scrollbar.jquery.min.js')
+    // Control Center for Material Dashboard: parallax effects, scripts for the example pages etc
+    script(src='../assets/js/material-dashboard.js?v=2.1.1', type='text/javascript')

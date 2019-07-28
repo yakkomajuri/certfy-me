@@ -1,0 +1,54 @@
+extends layout
+
+block content
+    .content
+        .section.section-contacts
+          .row
+            .col-md-8.ml-auto.mr-auto
+              h3.text-center.title Create a document from an existing template
+              h4.text-center.description
+                | Browse our templates below, select one that suits you and get an authenticated PDF valid as a contract in UK law. To preview a specific document, click "Begin" and 
+                | you will be able to see an example.
+                br
+                br
+                br
+          .row
+            .col-md-8.ml-auto.mr-auto(style="padding-left: 25%;")
+              select.form-control(id = "sel" name="selector" style="white-space: nowrap;")
+                option Non-Disclosure Agreement (NDA)
+            .col-md-4.ml-auto.mr-auto
+              button.btn.btn-secondary.noreload.btn-sm(onClick="loadFields()")
+               | BEGIN
+              br
+              br
+              br
+          .row
+           .col-lg-12#docSpecificFields
+
+
+    // Core JS Files
+    script(src='../assets/js/core/jquery.min.js')
+    //script(src='/javascripts/eth.js', type='text/javascript')
+    //script(src='/javascripts/load.js', type='text/javascript')
+    ////script(src='/javascripts/web3lib.js', type='text/javascript')
+    //////script(src='/javascripts/intermediate.js', type='text/javascript')
+    script(src='/javascripts/templates.js', type='text/javascript')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous")
+    |   
+    script(src='../assets/js/core/popper.min.js')
+    |   
+    script(src='../assets/js/core/bootstrap-material-design.min.js')
+    script(src='../assets/js/material-dashboard.js?v=2.1.1', type='text/javascript')
+    script(src='/javascripts/templates.js', type='text/javascript')
+
+style.
+
+    .form-control {
+      color: black !important;
+    }
+
+script.
+    $(".noreload").click(function(event) {
+    event.preventDefault();
+    })
+
