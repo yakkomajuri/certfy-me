@@ -15,6 +15,7 @@ Certfy's features:
 5. **IPFS Document Storage**: A user can choose to have a document encrypted and stored on IPFS.
 6. **Certfy Token**: An ERC-777 token that cannot be purchased via crowdsale. The token is given to those who use use Certfy and entitles them to a portion of the transaction fees of the platform.
 7. **Upgradability**: Certfy uses a proxy implementation to ensure persistency of important storage while allowing for upgrades to the platform.
+8. **Ethereum login**: Instead of having to always input username and password, users can login directly using their Ethereum address. The address is pulled from MetaMask automatically if the extension is unlocked.
 
 ## Project Structure
 
@@ -83,6 +84,13 @@ To run the tests written for the Solidity smart contracts, do the following afte
 
 3. Run `truffle test`
 
+## Using Certfy
+
+Important: Certfy requires MetaMask to function.
+
+To use Certfy's most trivial functionalities users need not login. By clicking 'Begin' on the homepage users will be taken to the bottom of the page where they can create a simple document registration to be able to authenticate the file. The file's authenticity can then be verified by clicking 'Verify' on the Navbar.
+
+In order to unlock more features, users can then register on the platform. Upon login, they are taken to a User Dashboard where they have an overview of all their registered documents as well as are able to add friends, create multi-sig registrations, use templates and IPFS, etc.
 
 
 
