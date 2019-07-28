@@ -28,3 +28,42 @@ Contains all the files referring to the Certfy website.
 
 Contains the files *design_pattern_decisions.md* and *avoiding_common_attacks.md* which explain key aspects of the design and architecture of the project.
 
+## Getting started
+
+If you wish to try out Certfy in your local machine, do the following on a Terminal/Shell:
+
+1. Clone this repository
+
+`git clone https://github.com/yakkomajuri/bootcamp-finalproject`
+
+2. Install dependencies
+
+Navigate to ./website and run:
+
+`npm install` 
+
+3. Install and configure MongoDB
+
+If you do not already have MongoDB installed, use homebrew to install it:
+
+`brew install mongodb`
+
+Then, run `mongod` to start the daemon and on a new terminal window run `mongo` to use the shell.
+
+On the shell, do the following:
+
+```use certfy
+    db.createCollection('users')
+```
+
+You can check that this was successful with commands `show dbs` and `show collections`.
+
+
+
+
+
+## Running tests
+
+
+
+
