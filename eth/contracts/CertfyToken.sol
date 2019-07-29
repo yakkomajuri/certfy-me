@@ -1,12 +1,12 @@
 pragma solidity ^0.5.0;
 
-import "../ERC777/IERC777.sol";
-import "../ERC777/IERC777Recipient.sol";
-import "../ERC777/IERC777Sender.sol";
-import "../../token/ERC20/IERC20.sol";
-import "../../math/SafeMath.sol";
-import "../../utils/Address.sol";
-import "../../introspection/IERC1820Registry.sol";
+import "../lib/token/ERC777/IERC777.sol";
+import "../lib/token/ERC777/IERC777Recipient.sol";
+import "../lib/token/ERC777/IERC777Sender.sol";
+import "../lib/token/ERC20/IERC20.sol";
+import "../lib/math/SafeMath.sol";
+import "../lib/utils/Address.sol";
+import "../lib/introspection/IERC1820Registry.sol";
 
 
 contract Owners {

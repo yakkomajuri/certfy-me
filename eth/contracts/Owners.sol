@@ -15,9 +15,9 @@ contract Owners {
         numberOfVoters = 3;
     }
 
-    mapping(address => bool) isOwner;
-    mapping(address => mapping(address => bool)) hasVotedToAdd;
-    mapping(address => mapping(address => bool)) hasVotedToRemove;
+    mapping(address => bool) public isOwner;
+    mapping(address => mapping(address => bool)) public hasVotedToAdd;
+    mapping(address => mapping(address => bool)) public hasVotedToRemove;
     mapping(address => uint8) public votesToAdd;
     mapping(address => uint8) public votesToRemove;
     

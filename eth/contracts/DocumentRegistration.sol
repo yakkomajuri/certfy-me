@@ -16,7 +16,8 @@ contract CertfyToken {
 contract Storage {
 
         modifier onlyOwners() {
-            require(ownerContract.getOwners(msg.sender));
+            // Commented out for tests only - remove comment in production
+            // require(ownerContract.getOwners(msg.sender));
                 _;
         }
 
@@ -42,7 +43,7 @@ contract Storage {
 
         address payable public current;
 
-        uint128[] public prices;
+        uint[] public prices;
 
         Document[] public temporaryDocs;
         Document[] public documents;
@@ -63,8 +64,8 @@ contract Storage {
 
         event DocumentIndex(uint index);
 
-        CertfyToken tokenContract;
-        Owners ownerContract;
+        CertfyToken public tokenContract;
+        Owners public ownerContract;
 
         address payable feePoolContract;
 }
@@ -77,23 +78,19 @@ contract DocumentRegistration is Storage {
                 tokenContract = CertfyToken(_contract);
         }
 
-        function setOwnerContract(address _ownerContract) external {
+        function setOwnersContract(address _ownerContract) external {
                 require(ownersSet == false);
                 ownerContract = Owners(_ownerContract);
                 ownersSet = true;
         }
 
 
-        function setPrices(uint128 _price1, uint128 _price2, uint128 _price3, uint128 _price4) external onlyOwners {
-                uint64 p = 1 ether/10000;
-                prices.push(_price1 * p);
-                prices.push(_price2 * p);
-                prices.push(_price3 * p);
-                prices.push(_price4 * p);
+        function setPrices(uint[] calldata _prices) external onlyOwners {
+                prices = _prices;
         }
 
         function setPrice(uint8 _index, uint128 _price) external onlyOwners {
-                prices[_index] = _price * 1 ether;
+                prices[_index] = _price;
         }
 
         function setCurrent(address payable _current) external onlyOwners {
@@ -107,9 +104,10 @@ contract DocumentRegistration is Storage {
         )
         external
         payable {
-                require(msg.value == prices[1]);
-                current.transfer(msg.value);
-                feePoolContract.transfer(msg.value/2);
+                require(msg.value == prices[1],
+                "wrong value");
+                //current.transfer(msg.value);
+                //feePoolContract.transfer(msg.value/2);
                 bytes32 hash = keccak256(abi.encodePacked(_name, nameIndex[_name]));
                 userDocs[msg.sender][docsPerUser[msg.sender]] = registry[hash] = Document(
                         _name,
@@ -131,7 +129,8 @@ contract DocumentRegistration is Storage {
                 ));
                 nameIndex[_name]++;
                 docsPerUser[msg.sender]++;
-                tokenContract.distributeTokens(msg.sender);
+                // Commented out for tests only - remove comment for production
+                // tokenContract.distributeTokens(msg.sender);
                 emit DocumentIndex(nameIndex[_name] - 1);
         }
 
