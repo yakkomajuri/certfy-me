@@ -11,6 +11,6 @@ module.exports = function (deployer, network, accounts) {
   deployer.deploy(Owners, accounts[0], accounts[1]).then(function () {
     deployer.deploy(FeePool);
     deployer.deploy(DocumentRegistration);
-    return deployer.deploy(CertfyToken, "Certfy Token", "CERT", [accounts[0]], Owners.address);
+    return deployer.deploy(CertfyToken, "Certfy Token", "CERT", 100, [accounts[0]], Owners.address);
   });
 };

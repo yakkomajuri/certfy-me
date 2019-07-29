@@ -6,17 +6,6 @@ const FeePool = artifacts.require("FeePool");
 
 
 contract('CertfyToken', (accounts) => {
-    /*
-    beforeEach(async () => {
-        ContractInstance = await erc20token.new("MyStoreFront")
-        assert.ok(ContractInstance)
-    
-        erc20factoryInstance = await erc20factory.new()
-        await ContractInstance.setParent(erc20factoryInstance.address)
-    })
-    */
-
-
 
     it('should create a token with the right parameters', async () => {
         const tokenContract = await CertfyToken.deployed();
@@ -65,25 +54,30 @@ contract('CertfyToken', (accounts) => {
     });
 
 
-    it('should give 1000 tokens to a user who registers a document', async () => {
+    it('should give selected amount of tokens to the creator', async () => {
         const tokenContract = await CertfyToken.deployed();
-        const docRegContract = await DocumentRegistration.deployed();
-        const feePoolContract = await FeePool.deployed();
+    
+        var balance = await tokenContract.balanceOf.call(accounts[0]);
 
-        await feePoolContract.setToken(tokenContract['address'], 1000000, {from: accounts[0]});
-
-        await tokenContract.setPoolAddress(feePoolContract['address'], {from: accounts[0]});
-        await tokenContract.setDocumentRegistration(docRegContract['address'], {from: accounts[0]});
-
-        var feePoolAddress = await tokenContract.feePoolAddress.call();
-        var docRegAddress = await tokenContract.documentRegistrationAddress.call();
-
-
-     
-        assert.equal(feePoolAddress, feePoolContract['address'], "FeePool address set sucessfully");
-        assert.equal(docRegAddress, docRegContract['address'], "DocumentRegistration address set sucessfully");
-
+        assert.equal(balance, 100, "Creator received 100 tokens");
     });
+
+
+    it('should allow a token transfer', async () => {
+        const tokenContract = await CertfyToken.deployed();
+
+        var valueToSend = 10;
+    
+        await tokenContract.transfer(accounts[3], valueToSend, {from: accounts[0]});
+        
+        var balanceSender = await tokenContract.balanceOf.call(accounts[0]);
+        var balanceReceiver = await tokenContract.balanceOf.call(accounts[3]);
+
+
+        assert.equal(balanceSender.toNumber(), 100-valueToSend, "Sender balance decreased");
+        assert.equal(balanceReceiver.toNumber(), valueToSend, "Receiver balance increased");
+    });
+
 
 });
 

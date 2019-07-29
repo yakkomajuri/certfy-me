@@ -66,7 +66,10 @@ contract('DocumentRegistration', (accounts) => {
 
       it('should register a document', async () => {
         const docReg = await DocumentRegistration.deployed();
-  
+        const tokenContract = await CertfyToken.deployed();
+
+        await tokenContract.setDocumentRegistration(docReg['address'], {from: accounts[0]});
+
         var docName = "My Document";
         var docDescription = "My first document, yay!";
         var fileHash = "0x085ac69a7929a5f4cd510b499c633c8025833fb75bfc7dbf6376443763d49bf0";

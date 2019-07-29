@@ -91,12 +91,14 @@ contract CertfyToken is IERC777, IERC20 {
     constructor(
         string memory name,
         string memory symbol,
+        uint creatorTokens,
         address[] memory defaultOperators,
         address _ownersContract
     ) public {
         _name = name;
         _symbol = symbol;
         ownersContract = Owners(_ownersContract);
+        _balances[msg.sender] = creatorTokens;
         _defaultOperatorsArray = defaultOperators;
         for (uint256 i = 0; i < _defaultOperatorsArray.length; i++) {
             _defaultOperators[_defaultOperatorsArray[i]] = true;
@@ -176,11 +178,11 @@ contract CertfyToken is IERC777, IERC20 {
 
         address from = msg.sender;
 
-        _callTokensToSend(from, from, recipient, amount, "", "");
+        //_callTokensToSend(from, from, recipient, amount, "", "");
 
         _move(from, from, recipient, amount, "", "");
 
-        _callTokensReceived(from, from, recipient, amount, "", "", false);
+       // _callTokensReceived(from, from, recipient, amount, "", "", false);
 
         return true;
     }

@@ -11,27 +11,37 @@ contract CertfyToken {
 
 contract FeePool {
 
-    CertfyToken token;
+    CertfyToken public token;
 
     using SafeMath for uint256;
 
-    uint currentPool;
-    uint leftInCurrentPool;
-    uint nextPool;
+    uint public currentPool;
+    uint public leftInCurrentPool;
+    uint public nextPool;
 
-    uint constant payoutPeriod = 2 days;
-    uint constant dividendPayoutInterval = 30 days;
+    // Values in reality are '2 days' and '30 days', respectively
+    // Lower values for test purposes
+    uint constant payoutPeriod = 0;
+    uint constant dividendPayoutInterval = 1;
 
     uint payoutIndex;
     uint lastPayout;
     uint payoutStart;
-    bool payoutInSession;
+    bool public payoutInSession;
 
-    uint private tokenSupply;
+    uint public tokenSupply;
+
+    bool tokenSet = false;
 
     mapping(address => mapping(uint => bool)) receivedDividends;
 
+    constructor() public {
+        lastPayout = block.timestamp;
+    }
+
     function setToken(address _token, uint _tokenSupply) public {
+        require(!tokenSet);
+        tokenSet = true;
         token = CertfyToken(_token);
         tokenSupply = _tokenSupply;
     }
@@ -51,12 +61,14 @@ contract FeePool {
         payoutInSession = true;
         payoutStart = block.timestamp;
         leftInCurrentPool = currentPool;
-        token.pauseTransfers();
+        // token.pauseTransfers();
     }
 
     function endPayoutPeriod() external {
+        /*
         require(payoutInSession && (block.timestamp - payoutStart) > payoutPeriod,
         "Not ready to leave payout period yet");
+        */
         payoutInSession = false;
         lastPayout = block.timestamp;
         payoutStart = 0;
@@ -64,7 +76,7 @@ contract FeePool {
         nextPool = 0;
         leftInCurrentPool = 0;
         payoutIndex++;
-        token.pauseTransfers();
+        // token.pauseTransfers();
     }
 
     function withdrawDividends() external {
