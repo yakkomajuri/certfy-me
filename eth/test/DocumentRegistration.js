@@ -1,43 +1,50 @@
 const DocumentRegistration = artifacts.require("DocumentRegistration");
+const CertfyToken = artifacts.require("CertfyToken");
+const Owners = artifacts.require("Owners");
+const FeePool = artifacts.require("FeePool");
 
 contract('DocumentRegistration', (accounts) => {
-    /*
-    beforeEach(async () => {
-        ContractInstance = await erc20token.new("MyStoreFront")
-        assert.ok(ContractInstance)
-    
-        erc20factoryInstance = await erc20factory.new()
-        await ContractInstance.setParent(erc20factoryInstance.address)
-    })
-    */
-
 
     it('should set the right address for Owners contract', async () => {
       const docReg = await DocumentRegistration.deployed();
-
-      var pretendOwnersAddress = accounts[9];
-
-      await docReg.setOwnersContract(pretendOwnersAddress, {from: accounts[0]});
+      const ownersContract = await Owners.deployed();
   
+      await docReg.setOwnersContract(ownersContract['address'], {from: accounts[0]});
       var registeredAddress = await docReg.ownerContract.call();
   
-      assert.equal(registeredAddress, pretendOwnersAddress, "Owners address set correctly");
+      assert.equal(registeredAddress, ownersContract['address'], "Owners address set correctly");
     });
 
     it('should set the right address for Token contract', async () => {
-        const docReg = await DocumentRegistration.deployed();
-  
-        var pretendTokenAddress = accounts[8];
-  
-        await docReg.setTokenContract(pretendTokenAddress, {from: accounts[0]});
+      const docReg = await DocumentRegistration.deployed();
+      const tokenContract = await CertfyToken.deployed();
+
+      await docReg.setTokenContract(tokenContract['address'], {from: accounts[0]});
     
         var tokenAddress = await docReg.tokenContract.call();
     
-        assert.equal(tokenAddress, pretendTokenAddress, "Token address set correctly");
+        assert.equal(tokenAddress, tokenContract['address'], "Token address set correctly");
       });
 
-      it('should set the prices correctly', async () => {
+
+      it('should set the right addresses for address(current) and FeePool', async () => {
         const docReg = await DocumentRegistration.deployed();
+        const tokenContract = await CertfyToken.deployed();
+        const feePoolContract = await FeePool.deployed();
+
+  
+        await docReg.setCurrent(accounts[0], {from: accounts[0]});
+        await docReg.setPoolContract(feePoolContract['address'], {from: accounts[0]});
+
+        var current = await docReg.current.call();
+        var feePool = await docReg.feePoolContract.call();
+
+          assert.equal(current, accounts[0], "Current address set correctly");
+          assert.equal(feePool, feePoolContract['address'], "FeePool address set correctly");
+        });
+
+      it('should set the prices correctly', async () => {
+       const docReg = await DocumentRegistration.deployed();
   
         var pricesArray = [10, 10, 10, 10];
   
@@ -75,6 +82,34 @@ contract('DocumentRegistration', (accounts) => {
         assert.equal(document[0], docName, "Name set correctly");
         assert.equal(document[1], docDescription, "Description set correctly");
         assert.equal(String(web3.utils.toHex(document[5])), fileHash, "Hash set correctly");
+
+      });
+
+      it('should register a multisig document', async () => {
+        const docReg = await DocumentRegistration.deployed();
+  
+        var docName = "My Multi-Sig";
+        var docDescription = "My first multi-sig, yay!";
+        var fileHash = "0x085ac69a7929a5f4cd510b499c633c8025833fb75bfc7dbf6376443763d49bf0";
+
+        var signee1 = accounts[3];
+        var signee2 = accounts[4];
+
+        var price = await docReg.prices.call(2);
+
+        var tx1 = await docReg.registerMultiSig(docName, docDescription, fileHash, signee2, {from: signee1, value: price/2});
+        var tempIndex = tx1['logs'][0]['args']['index'];
+
+        var tx2 = await docReg.signDocument(docName, tempIndex, {from: signee2, value: price/2});
+        var index = tx2['logs'][0]['args']['index'];
+
+        var document = await docReg.documentQuery.call(docName, index);
+
+
+    
+        assert.equal(document[0], docDescription, "Name set correctly");
+        assert.equal(document[2], signee1, "Registrant set correctly");
+        assert.equal(document[3], signee2, "Signee set correctly");
 
       });
 

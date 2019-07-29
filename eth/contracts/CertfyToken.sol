@@ -35,7 +35,7 @@ contract CertfyToken is IERC777, IERC20 {
     using SafeMath for uint256;
     using Address for address;
 
-    Owners ownersContract;
+    Owners public ownersContract;
 
     modifier onlyOwners() {
         require(ownersContract.getOwners(msg.sender));
@@ -82,8 +82,8 @@ contract CertfyToken is IERC777, IERC20 {
 
     bool transfersPaused;
 
-    address feePoolAddress;
-    address documentRegistrationAddress; 
+    address public feePoolAddress;
+    address public documentRegistrationAddress; 
 
     /**
      * @dev `defaultOperators` may be an empty array.
@@ -103,8 +103,8 @@ contract CertfyToken is IERC777, IERC20 {
         }
 
         // register interfaces
-        _erc1820.setInterfaceImplementer(address(this), keccak256("ERC777Token"), address(this));
-        _erc1820.setInterfaceImplementer(address(this), keccak256("ERC20Token"), address(this));
+        //_erc1820.setInterfaceImplementer(address(this), keccak256("ERC777Token"), address(this));
+        //_erc1820.setInterfaceImplementer(address(this), keccak256("ERC20Token"), address(this));
     }
 
     /**

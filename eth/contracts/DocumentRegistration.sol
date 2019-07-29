@@ -17,7 +17,7 @@ contract Storage {
 
         modifier onlyOwners() {
             // Commented out for tests only - remove comment in production
-            // require(ownerContract.getOwners(msg.sender));
+            require(ownerContract.getOwners(msg.sender));
                 _;
         }
 
@@ -67,7 +67,7 @@ contract Storage {
         CertfyToken public tokenContract;
         Owners public ownerContract;
 
-        address payable feePoolContract;
+        address payable public feePoolContract;
 }
 
 
@@ -141,10 +141,11 @@ contract DocumentRegistration is Storage {
                 address _signee
         )
         external
-        payable {
+        payable
+        {
                 require(msg.value == prices[2] / 2);
-                current.transfer(msg.value);
-                feePoolContract.transfer(msg.value/2);
+                // current.transfer(msg.value);
+                // feePoolContract.transfer(msg.value/2);
                 bytes32 hash = keccak256(abi.encodePacked(_name, temporaryIndex[_name])); // temporaryIndex is separate from nameIndex
                 temporaryRegistry[hash] = Document(
                         _name,
@@ -165,14 +166,14 @@ contract DocumentRegistration is Storage {
                         true
                 ));
                 temporaryIndex[_name]++; // Allow temporary registrations under the same name
-                tokenContract.distributeTokens(msg.sender);
+                // tokenContract.distributeTokens(msg.sender);
                 emit DocumentIndex(temporaryIndex[_name] - 1);
         }
 
-        function signDocument(string calldata _name, uint32 _temporaryIndex) external payable returns(uint) {
+        function signDocument(string calldata _name, uint32 _temporaryIndex) external payable {
                 require(msg.value == prices[2] / 2);
-                current.transfer(msg.value);
-                feePoolContract.transfer(msg.value/2);
+                // current.transfer(msg.value);
+                // feePoolContract.transfer(msg.value/2);
                 bytes32 temporaryHash = keccak256(abi.encodePacked(_name, _temporaryIndex));
                 bytes32 permanentHash = keccak256(abi.encodePacked(_name, nameIndex[_name]));
                 require(registry[permanentHash].isEntity == false);
@@ -202,7 +203,7 @@ contract DocumentRegistration is Storage {
                 nameIndex[_name]++;
                 docsPerUser[signee]++;
                 docsPerUser[msg.sender]++;
-                tokenContract.distributeTokens(msg.sender);
+                // tokenContract.distributeTokens(msg.sender);
                 emit DocumentIndex(nameIndex[_name] - 1);
         }
 

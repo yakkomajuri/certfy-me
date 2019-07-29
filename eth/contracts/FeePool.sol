@@ -31,7 +31,7 @@ contract FeePool {
 
     mapping(address => mapping(uint => bool)) receivedDividends;
 
-    constructor(address _token, uint _tokenSupply) public {
+    function setToken(address _token, uint _tokenSupply) public {
         token = CertfyToken(_token);
         tokenSupply = _tokenSupply;
     }
