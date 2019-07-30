@@ -86,8 +86,8 @@ contract FeePool {
         receivedDividends[msg.sender][payoutIndex] = true;
         uint balance = token.balanceOf(msg.sender);
         uint dividendsAllocated = currentPool.mul(balance)/tokenSupply;
-        msg.sender.transfer(dividendsAllocated);
         leftInCurrentPool = leftInCurrentPool.sub(dividendsAllocated);
+        msg.sender.transfer(dividendsAllocated);
     }
 
     function nextPayoutPeriod() external view returns(uint) {
