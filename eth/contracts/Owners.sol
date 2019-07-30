@@ -1,6 +1,28 @@
 pragma solidity^0.5.0;
 
+/** 
+ * @title Owners
+ * @author Yakko Majuri
+ * @notice A fluid consensus model to coordinate all restricted functions in Certfy's contracts
+*/
+
 contract Owners {
+
+    // Keeps track of all owners
+    mapping(address => bool) public isOwner;
+
+    // Keeps track of who each address voted for
+    mapping(address => mapping(address => bool)) public hasVotedToAdd;
+    mapping(address => mapping(address => bool)) public hasVotedToRemove;
+
+    // Keeps track of the number of votes an address has received (to be added or removed)
+    mapping(address => uint8) public votesToAdd;
+    mapping(address => uint8) public votesToRemove;
+    
+    // Keeps track of all addresses that have been voted on. Once the 
+    address[] public addressesVotedOn;
+
+    uint8 public numberOfVoters;
     
     modifier onlyOwners() {  
         require(isOwner[msg.sender]);
@@ -14,16 +36,6 @@ contract Owners {
         isOwner[_owner2] = true;
         numberOfVoters = 3;
     }
-
-    mapping(address => bool) public isOwner;
-    mapping(address => mapping(address => bool)) public hasVotedToAdd;
-    mapping(address => mapping(address => bool)) public hasVotedToRemove;
-    mapping(address => uint8) public votesToAdd;
-    mapping(address => uint8) public votesToRemove;
-    
-    address[] public addressesVotedOn;
-
-    uint8 public numberOfVoters;
     
     function voteToAdd(address _ad) public onlyOwners {
         require(hasVotedToAdd[msg.sender][_ad] == false,

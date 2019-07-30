@@ -74,6 +74,7 @@ A pool of ETH from fees paid by document registrants which is distributed to hol
 
 Parts of the *DocumentRegistration* contract could be designed off-chain, to optimize for gas costs. An example is the `verifyDocument()` function, which would not be necessary if the information about the documents was pulled and the hashes compared client-side. However, the choice to add this on-chain was to limit the power of the application to cheat the user, as well as allow the user to easily verify their document using third-party services like MyEtherWallet with as little work as possible (i.e. without having to manually create a way to compare hashes).
 
+## Dividend Withdrawal
 
 
 

@@ -51,7 +51,7 @@ Certain aspects of the project require the consideration of time as a factor. Ho
 
 ## Denial of Service (Gas Limit)
 
-In order to both optimize for gas and prevent DoS attacks, a limited amount of loops is used troughout the whole application. These loops also never call functions outside of the contract or transfer ETH, preventing other malicious contracts from draining the gas available.
+In order to both optimize for gas and prevent DoS attacks, a limited amount of loops is used troughout the whole application. These loops also never call functions outside of the contract or transfer ETH, preventing other malicious contracts from draining the available gas.
 
 
 

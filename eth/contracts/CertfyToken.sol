@@ -29,6 +29,8 @@ contract Owners {
  * Additionally, the `granularity` value is hard-coded to `1`, meaning that there
  * are no special restrictions in the amount of tokens that created, moved, or
  * destroyed. This makes integration with ERC20 applications seamless.
+ * 
+ * @author Modifications applied by Yakko Majuri
  */
 contract CertfyToken is IERC777, IERC20 {
 
@@ -467,14 +469,25 @@ contract CertfyToken is IERC777, IERC20 {
         }
     }
 
+
+    /**
+    * @notice Switch coordinating if burning tokens is allowed, burning is diabled by default
+    */
     function changeBurnPermissions() external onlyOwners {
         burningAllowed = !burningAllowed;
     }
 
+    /**
+    * @notice Token allocation refers to how many tokens a user will gain from interacting with 'DocumentRegistration'
+    */
     function setTokenAllocation(uint _newAllocation) external onlyOwners {
         allocation = _newAllocation;
     }
 
+    /**
+    * @dev Function can only be called by DocumentRegistration contract - Only way to get tokens
+    * @notice Sends number of tokens specified by 'allocation' to user
+    */
     function distributeTokens(address account) external returns (bool) {
         require(msg.sender == documentRegistrationAddress,
         "Only Document Registration contract can call this function");
@@ -485,15 +498,27 @@ contract CertfyToken is IERC777, IERC20 {
         return true;
     }
 
+    /**
+    * @dev Can only be called by 'FeePool' contract when dividend payout period is activated
+    * @notice Switch coordinating if transfers are currently allowed
+    */
     function pauseTransfers() external onlyOwners {
         require(msg.sender == feePoolAddress);
         transfersPaused = !transfersPaused;
     }
 
+
+    /**
+    * @notice Sets address of 'FeePool' contract
+    */
     function setPoolAddress(address _contract) external onlyOwners {
         feePoolAddress = _contract;
     }
 
+
+    /**
+    * @notice Sets address of 'DocumentRegistration' contract
+    */
     function setDocumentRegistration(address _contract) external onlyOwners {
         documentRegistrationAddress = _contract;
     }
