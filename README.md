@@ -1,6 +1,6 @@
 # Certfy
 
-![Certfy Logo](https://raw.githubusercontent.com/yakkomajuri/bootcamp-finalproject/assets/logo.png)
+![Certfy Logo](https://raw.githubusercontent.com/yakkomajuri/bootcamp-finalproject/blob/master/assets/logo.png)
 
 
 ## About
