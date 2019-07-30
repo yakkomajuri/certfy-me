@@ -1,4 +1,4 @@
-### Avoiding Common Attacks
+# Avoiding Common Attacks
 
 ## Reentrancy
 

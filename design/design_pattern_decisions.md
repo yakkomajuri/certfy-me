@@ -1,4 +1,4 @@
-### Design Pattern Decisions
+# Design Pattern Decisions
 
 ## Upgradability
 
