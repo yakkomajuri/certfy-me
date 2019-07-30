@@ -131,7 +131,6 @@ This project was built **entirely by myself**. However, it was started prior to 
 - IPFS integration
 - Password reset functionality
 - Updates to frontend and backend
-- Certfy logo and Medium page
 - README.md, avoiding_common_attacks.md, design_pattern_decisions.md
 
 
