@@ -95,6 +95,8 @@ To run the tests written for the Solidity smart contracts, do the following afte
 
 5. Run `truffle test`
 
+The reasoning for each test is provided via comments in the file where the test was written.
+
 ## Using Certfy
 
 Important: Certfy requires MetaMask to function.

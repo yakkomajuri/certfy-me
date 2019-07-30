@@ -63,9 +63,9 @@ contract Owners {
     function voteToAdd(address _ad) public onlyOwners {
         require(addressesVotedOn[msg.sender].length < 26);
         require(hasVotedToAdd[msg.sender][_ad] == false,
-        "this");
+        "msg.sender has already voted to add this address");
         require(isOwner[_ad] == false,
-        "that");
+        "voting address is not an owner");
         hasVotedToAdd[msg.sender][_ad] = true;
         addressesVotedOn[msg.sender].push(_ad);
         votesToAdd[_ad]++;
@@ -82,9 +82,12 @@ contract Owners {
      * majority reached
     */
     function voteToRemove(address _ad) public onlyOwners {
-        require(addressesVotedOn[msg.sender].length < 26);
-        require(hasVotedToRemove[msg.sender][_ad] == false);
-        require(isOwner[_ad]);
+        require(addressesVotedOn[msg.sender].length < 26,
+        "vote limit reached");
+        require(hasVotedToRemove[msg.sender][_ad] == false,
+        "vote already computed");
+        require(isOwner[_ad],
+        "voter is not owner");
         hasVotedToRemove[msg.sender][_ad] = true;
         addressesVotedOn[msg.sender].push(_ad);
         votesToRemove[_ad]++;

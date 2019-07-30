@@ -5,6 +5,7 @@ const FeePool = artifacts.require("FeePool");
 
 contract('DocumentRegistration', (accounts) => {
 
+    // 'DocumentRegistration' regularly interacts with 'Owners', so this initialization is essential
     it('should set the right address for Owners contract', async () => {
       const docReg = await DocumentRegistration.deployed();
       const ownersContract = await Owners.deployed();
@@ -15,6 +16,7 @@ contract('DocumentRegistration', (accounts) => {
       assert.equal(registeredAddress, ownersContract['address'], "Owners address set correctly");
     });
 
+    // 'DocumentRegistration' regularly interacts with 'CertfyToken', so this initialization is essential
     it('should set the right address for Token contract', async () => {
       const docReg = await DocumentRegistration.deployed();
       const tokenContract = await CertfyToken.deployed();
@@ -26,7 +28,7 @@ contract('DocumentRegistration', (accounts) => {
         assert.equal(tokenAddress, tokenContract['address'], "Token address set correctly");
       });
 
-
+    // 'DocumentRegistration' regularely interacts with 'CertfyToken', so this initialization is essential
       it('should set the right addresses for address(current) and FeePool', async () => {
         const docReg = await DocumentRegistration.deployed();
         const tokenContract = await CertfyToken.deployed();
@@ -43,6 +45,7 @@ contract('DocumentRegistration', (accounts) => {
           assert.equal(feePool, feePoolContract['address'], "FeePool address set correctly");
         });
 
+      // Prices determine the cost for every action on the platform, so must be set correctly
       it('should set the prices correctly', async () => {
        const docReg = await DocumentRegistration.deployed();
   
@@ -63,7 +66,9 @@ contract('DocumentRegistration', (accounts) => {
 
       });
 
-
+      // Tests key functionality
+      // Given that the right amount is paid, document should be able to be registered by anyone
+      // If tx.value is changed, execution should revert - Try it for yourself!
       it('should register a document', async () => {
         const docReg = await DocumentRegistration.deployed();
         const tokenContract = await CertfyToken.deployed();
@@ -88,6 +93,12 @@ contract('DocumentRegistration', (accounts) => {
 
       });
 
+
+      // Tests key functionality
+      // Given that the right amount is paid, document should be able to be registered to the temporary registry
+      // Then, if the correct signee calls signDocument() and transfers the right value document is added to real document registry
+      // If msg.sender for signDocument != signee2 transaction should revert - Try it for yourself!
+      // If tx.value is changed, execution should revert - Try it for yourself!
       it('should register a multisig document', async () => {
         const docReg = await DocumentRegistration.deployed();
   
@@ -116,6 +127,24 @@ contract('DocumentRegistration', (accounts) => {
 
       });
 
+      // Tests key functionality
+      // Given that the right amount is paid, address should be registered as a verifiedAddress
+      // If tx.value is changed, execution should revert - Try it for yourself!
+      // This test tests for verifiedAddress[_address].isEntity == true
+      it('should successfully register an address as a verifiedAddress', async () => {
+        const docReg = await DocumentRegistration.deployed();
+
+
+        var name = "Company A";
+        var description = "companywebsite.com/our-eth-address";
+
+        await docReg.registerAddress(name, description, {from: accounts[9], value: 10});
+       
+        var addressInfo = await docReg.verifiedAddress.call(accounts[9]);
+
+        assert.equal(addressInfo[3], true, "Address registered correctly");
+
+      });
   
   });
 

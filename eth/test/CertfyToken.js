@@ -7,6 +7,8 @@ const FeePool = artifacts.require("FeePool");
 
 contract('CertfyToken', (accounts) => {
 
+    // Token should be properly initialized with the set parameters
+    // Nothing else matters if this does not work
     it('should create a token with the right parameters', async () => {
         const tokenContract = await CertfyToken.deployed();
 
@@ -21,6 +23,7 @@ contract('CertfyToken', (accounts) => {
 
     });
 
+    // 'CertfyToken' regularly interacts with 'Owners', so this initialization is essential
     it('should set the right owners contract', async () => {
         const tokenContract = await CertfyToken.deployed();
         const ownersContract = await Owners.deployed();
@@ -33,6 +36,7 @@ contract('CertfyToken', (accounts) => {
 
     });
 
+    // 'CertfyToken' regularly interacts with 'FeePool' and 'DocumentRegistration', so this initialization is essential
     it('should set the right FeePool and DocumentRegistration addresses', async () => {
         const tokenContract = await CertfyToken.deployed();
         const docRegContract = await DocumentRegistration.deployed();
@@ -53,7 +57,7 @@ contract('CertfyToken', (accounts) => {
 
     });
 
-
+    // Certifies that constructor was executed properly and the creator was given the assigned number of tokens
     it('should give selected amount of tokens to the creator', async () => {
         const tokenContract = await CertfyToken.deployed();
     
@@ -63,6 +67,7 @@ contract('CertfyToken', (accounts) => {
     });
 
 
+    // A token contract should properly process a token transfer
     it('should allow a token transfer', async () => {
         const tokenContract = await CertfyToken.deployed();
 

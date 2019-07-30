@@ -115,7 +115,7 @@ contract DocumentRegistration is Storage {
      * @dev Initialization must be done separately because contract cannot have a constructor
     */
     function setTokenContract(address _tokenContract) external onlyOwners {
-        tokenContract = CertfyToken(_contract);
+        tokenContract = CertfyToken(_tokenContract);
     }
 
     /** 
