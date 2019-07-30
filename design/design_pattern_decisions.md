@@ -26,7 +26,7 @@ modifier onlyOwners() {
 }
 ```
 
-The modifier uses OPCODE `call` to check with the separately-deployed contract if `msg.sender` is a designated owner.
+The modifier uses opcode `CALL` to check with the separately-deployed contract if `msg.sender` is a designated owner.
 
 
 ## Circuit Breaker
@@ -46,13 +46,34 @@ In order to make the process of gathering fees from the platform as simple and s
 
 However, with the addition of *CertfyToken* and *FeePool*, 50% of the funds are sent directly to the specified address whereas the other 50% are sent to the *FeePool* contract. Thus, mechanisms needed to be put in place to secure the *FeePool* contract, which stores ETH. This is described in more detail on *avoiding_common_attacks.md*.
 
-
-## Multi-Sig Self-Destruct
-
-
-
-
 ## Modularity
+
+A choice was made for a modular rather than monolithic project. The choice was a straightforward one, as the project contains multiple distinct parts which clearly coordinate separate functionalities. This facilitates upgrades, code maintenance and robustness, as a bug found in one contract will not necessarily require that all other contracts be redployed. The smart contracts are separated as follows:
+
+# DocumentRegistration
+
+Handles the main functionalities of the platform. Most importantly it handles the registration and authentication of documents.
+
+# Proxy
+
+Used for adding upgradability to *DocumentRegistration*. Uses the `DELEGATECALL` opcode to pass forward the relevant function calls it receives to the current updated version of the *DocumentRegistration* contract.
+
+# Owners
+
+One separate contract which coordinates all calls to restricted functions to all other contracts. Implements a Fluid Consensus model.
+
+# CertfyToken
+
+ERC777 token used to reward users of the Certfy platform.
+
+# FeePool
+
+A pool of ETH from fees paid by document registrants which is distributed to holders of Certfy tokens via dividends.
+
+## On-chain Authentication
+
+Parts of the *DocumentRegistration* contract could be designed off-chain, to optimize for gas costs. An example is the `verifyDocument()` function, which would not be necessary if the information about the documents was pulled and the hashes compared client-side. However, the choice to add this on-chain was to limit the power of the application to cheat the user, as well as allow the user to easily verify their document using third-party services like MyEtherWallet with as little work as possible (i.e. without having to manually create a way to compare hashes).
+
 
 
 
