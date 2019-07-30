@@ -31,6 +31,10 @@ Contains all the files referring to the Certfy website.
 
 Contains the files *design_pattern_decisions.md* and *avoiding_common_attacks.md* which explain key aspects of the design and architecture of the project.
 
+**deployed_addresses.txt** 
+
+Contains the addresses of deployed contracts and their respective networks.
+
 ## Getting started
 
 If you wish to try out Certfy in your local machine, do the following on a Terminal/Shell:
