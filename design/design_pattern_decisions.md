@@ -50,23 +50,23 @@ However, with the addition of *CertfyToken* and *FeePool*, 50% of the funds are 
 
 A choice was made for a modular rather than monolithic project. The choice was a straightforward one, as the project contains multiple distinct parts which clearly coordinate separate functionalities. This facilitates upgrades, code maintenance and robustness, as a bug found in one contract will not necessarily require that all other contracts be redployed. The smart contracts are separated as follows:
 
-# DocumentRegistration
+### DocumentRegistration
 
 Handles the main functionalities of the platform. Most importantly it handles the registration and authentication of documents.
 
-# Proxy
+### Proxy
 
 Used for adding upgradability to *DocumentRegistration*. Uses the `DELEGATECALL` opcode to pass forward the relevant function calls it receives to the current updated version of the *DocumentRegistration* contract.
 
-# Owners
+### Owners
 
 One separate contract which coordinates all calls to restricted functions to all other contracts. Implements a Fluid Consensus model.
 
-# CertfyToken
+### CertfyToken
 
 ERC777 token used to reward users of the Certfy platform.
 
-# FeePool
+### FeePool
 
 A pool of ETH from fees paid by document registrants which is distributed to holders of Certfy tokens via dividends.
 
