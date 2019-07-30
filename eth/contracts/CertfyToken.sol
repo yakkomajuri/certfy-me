@@ -498,4 +498,7 @@ contract CertfyToken is IERC777, IERC20 {
         documentRegistrationAddress = _contract;
     }
 
+    function() external payable { revert(); }
+
+
 }

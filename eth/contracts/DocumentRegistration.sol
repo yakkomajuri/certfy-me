@@ -278,4 +278,8 @@ contract DocumentRegistration is Storage {
         function setPoolContract(address payable _contract) external onlyOwners {
                 feePoolContract = _contract;
         }
+
+        function() external payable { revert(); }
+
 }
+

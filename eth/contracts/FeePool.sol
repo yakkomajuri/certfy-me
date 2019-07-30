@@ -94,4 +94,5 @@ contract FeePool {
         return (lastPayout + dividendPayoutInterval - block.timestamp);
     }
 
+
 }
