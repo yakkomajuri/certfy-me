@@ -76,6 +76,7 @@ Parts of the *DocumentRegistration* contract could be designed off-chain, to opt
 
 ## Dividend Withdrawal
 
+In order to optimize for gas on the *FeePool* contract, dividends are not distributed automatically, but rather they are allocated to each user who can then withdraw them during a specified period. This prevents the application from looping through a large array of addresses while sending a transfer to each one. This also prevents DoS and reentrancy attacks.
 
 
 
