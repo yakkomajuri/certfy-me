@@ -493,8 +493,8 @@ contract CertfyToken is IERC777, IERC20 {
         "Only Document Registration contract can call this function");
         _balances[account] = _balances[account].add(allocation);
         tokensLeft = tokensLeft.sub(allocation);
-        address from = msg.sender;
-        _callTokensReceived(from, from, account, allocation, "", "", false);
+        // address from = msg.sender;
+        // _callTokensReceived(from, from, account, allocation, "", "", false);
         return true;
     }
 
@@ -502,7 +502,7 @@ contract CertfyToken is IERC777, IERC20 {
     * @dev Can only be called by 'FeePool' contract when dividend payout period is activated
     * @notice Switch coordinating if transfers are currently allowed
     */
-    function pauseTransfers() external onlyOwners {
+    function pauseTransfers() external {
         require(msg.sender == feePoolAddress);
         transfersPaused = !transfersPaused;
     }

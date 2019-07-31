@@ -35,6 +35,8 @@ contract('FeePool', (accounts) => {
             value: '1000000000000000'
         });
 
+        await feePoolContract.incrementPool({from: accounts[0]});
+
         var pool = await feePoolContract.currentPool.call();
 
         assert.equal(pool.toNumber(), 1000000000000000, "Pool updated correctly");
@@ -44,6 +46,7 @@ contract('FeePool', (accounts) => {
     // Ensures that dividend payout can be activated by any address
     it('should activate dividend payout', async () => {
         const feePoolContract = await FeePool.deployed();
+        const tokenContract = await CertfyToken.deployed();
 
         await feePoolContract.activatePayout({from: accounts[8]});
 
@@ -63,6 +66,8 @@ contract('FeePool', (accounts) => {
             to: feePoolContract['address'],
             value: '1000000000000000'
         });
+
+        await feePoolContract.incrementPool({from: accounts[0]});
 
         var current = await feePoolContract.currentPool.call();
         var next = await feePoolContract.nextPool.call();

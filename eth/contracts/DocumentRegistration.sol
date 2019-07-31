@@ -8,6 +8,11 @@ pragma solidity ^ 0.5.0;
  * @dev Storage and Logic separated for the purpose of the upgradability pattern
 */
 
+contract FeePool {
+
+    function incrementPool() public {}
+
+}
 
 contract Owners {
 
@@ -28,6 +33,7 @@ contract Storage {
     /// Declares the other contracts that interoperate with DocumentRegistration
     CertfyToken public tokenContract;
     Owners public ownerContract;
+    FeePool public feePoolContract;
 
     // Address 'current' receives fees from the platform directly    
     address payable public current;
@@ -58,9 +64,6 @@ contract Storage {
     // Used for initialization of the contract, since it should not have a constructor 
     // due to the proxy implementation
     bool ownersSet;
-
-    // Allows for depositing of ETH into the FeePool contract
-    address payable public feePoolContract;
 
     // Each Document registered on the platform will feature this information
     struct Document {
@@ -132,10 +135,11 @@ contract DocumentRegistration is Storage {
      * @param _index Index of price to change in array
      * @param _price New price
     */
+    /*
     function setPrice(uint8 _index, uint128 _price) external onlyOwners {
         prices[_index] = _price;
     }
-
+*/
     
     /** 
      * @notice Sets the 'current' address which receives fees
@@ -150,7 +154,7 @@ contract DocumentRegistration is Storage {
      * @param _contractAddress FeePool address
     */
     function setPoolContract(address payable _contractAddress) external onlyOwners {
-        feePoolContract = _contractAddress;
+        feePoolContract = FeePool(_contractAddress);
     }
 
 
@@ -171,8 +175,10 @@ contract DocumentRegistration is Storage {
     payable {
         require(msg.value == prices[1],
             "wrong value");
-        //current.transfer(msg.value);
-        //feePoolContract.transfer(msg.value/2);
+        current.transfer(msg.value/2);
+        address fp = address(feePoolContract);
+        address payable feePool = address(uint160(fp));
+        feePool.transfer(msg.value/2);
         bytes32 hash = keccak256(abi.encodePacked(_name, nameIndex[_name]));
         userDocs[msg.sender][docsPerUser[msg.sender]] = registry[hash] = Document(
             _name,
@@ -194,9 +200,9 @@ contract DocumentRegistration is Storage {
         ));
         nameIndex[_name]++;
         docsPerUser[msg.sender]++;
-        // Commented out for tests only - remove comment for production
-        // tokenContract.distributeTokens(msg.sender);
         emit LogDocumentIndex(nameIndex[_name] - 1);
+        tokenContract.distributeTokens(msg.sender);
+        feePoolContract.incrementPool();
     }
 
     /** 
@@ -218,8 +224,10 @@ contract DocumentRegistration is Storage {
     payable
     {
         require(msg.value == prices[2] / 2);
-        // current.transfer(msg.value);
-        // feePoolContract.transfer(msg.value/2);
+        current.transfer(msg.value/2);
+        address fp = address(feePoolContract);
+        address payable feePool = address(uint160(fp));
+        feePool.transfer(msg.value/2);
         bytes32 hash = keccak256(abi.encodePacked(_name, temporaryIndex[_name])); // temporaryIndex is separate from nameIndex
         temporaryRegistry[hash] = Document(
             _name,
@@ -240,8 +248,9 @@ contract DocumentRegistration is Storage {
             true
         ));
         temporaryIndex[_name]++; // Allow temporary registrations under the same name
-        // tokenContract.distributeTokens(msg.sender);
         emit LogTemporaryIndex(temporaryIndex[_name] - 1);
+        tokenContract.distributeTokens(msg.sender);
+        feePoolContract.incrementPool();
     }
 
     /** 
@@ -257,16 +266,22 @@ contract DocumentRegistration is Storage {
     external
     payable
     {
-        require(msg.value == prices[2] / 2);
-        // current.transfer(msg.value);
-        // feePoolContract.transfer(msg.value/2);
+        require(msg.value == prices[2] / 2, 
+        "the price aint right");
         bytes32 temporaryHash = keccak256(abi.encodePacked(_name, _temporaryIndex));
         bytes32 permanentHash = keccak256(abi.encodePacked(_name, nameIndex[_name]));
-        require(registry[permanentHash].isEntity == false);
-        require(temporaryRegistry[temporaryHash].isEntity);
+        require(registry[permanentHash].isEntity == false,
+        "document already exists");
+        require(temporaryRegistry[temporaryHash].isEntity,
+        "temporary document was not registered");
         address signee = temporaryRegistry[temporaryHash].signee;
         address registrant = temporaryRegistry[temporaryHash].registrant;
-        require(signee == msg.sender);
+        require(signee == msg.sender,
+        "msg.sender is not signee");
+        current.transfer(msg.value/2);
+        address fp = address(feePoolContract);
+        address payable feePool = address(uint160(fp));
+        feePool.transfer(msg.value/2);
         userDocs[registrant][docsPerUser[registrant]] = userDocs[msg.sender][docsPerUser[msg.sender]] = registry[permanentHash] = Document(
             temporaryRegistry[temporaryHash].name,
             temporaryRegistry[temporaryHash].metadata,
@@ -288,8 +303,9 @@ contract DocumentRegistration is Storage {
         nameIndex[_name]++;
         docsPerUser[signee]++;
         docsPerUser[msg.sender]++;
-        // tokenContract.distributeTokens(msg.sender);
         emit LogDocumentIndex(nameIndex[_name] - 1);
+        tokenContract.distributeTokens(msg.sender);
+        feePoolContract.incrementPool();
     }
 
 
@@ -308,14 +324,18 @@ contract DocumentRegistration is Storage {
     external
     payable {
         require(msg.value == prices[1]);
-        current.transfer(msg.value);
-        feePoolContract.transfer(msg.value / 2);
+        current.transfer(msg.value/2);
+        address fp = address(feePoolContract);
+        address payable feePool = address(uint160(fp));
+        feePool.transfer(msg.value/2);
         verifiedAddress[msg.sender] = Registrant(
             _name,
             _description,
             msg.sender,
             true);
         registrants.push(Registrant(_name, _description, msg.sender, true));
+        tokenContract.distributeTokens(msg.sender);
+        feePoolContract.incrementPool();
     }
 
     /** 
@@ -333,11 +353,14 @@ contract DocumentRegistration is Storage {
     payable {
         require(msg.value == prices[3]);
         require(verifiedAddress[msg.sender].isEntity);
-        current.transfer(msg.value / 2);
-        feePoolContract.transfer(msg.value / 2);
+        current.transfer(msg.value/2);
+        address fp = address(feePoolContract);
+        address payable feePool = address(uint160(fp));
+        feePool.transfer(msg.value/2);
         verifiedAddress[msg.sender].name = _name;
         verifiedAddress[msg.sender].description = _description;
         registrants.push(Registrant(_name, _description, msg.sender, true));
+        feePoolContract.incrementPool();
     }
 
 

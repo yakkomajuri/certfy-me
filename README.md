@@ -91,7 +91,7 @@ To run the tests written for the Solidity smart contracts, do the following afte
 
 3. Use *ganache-cli* or another provider of your choice to start a local Ethereum network. By default, the project will look for connections on port 8545. You can change this on *truffle-config.js*.
 
-4. Recommended: run `truffle migrate --reset` before tests.
+4. Recommended: run `truffle migrate --reset --all` before tests.
 
 5. Run `truffle test`
 

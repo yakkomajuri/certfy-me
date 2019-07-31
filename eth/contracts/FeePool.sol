@@ -63,13 +63,7 @@ contract FeePool {
      * @dev Rolls funds over to the pool of the next period if they are deposited during a dividend payout
      * This happens because some users may have already taken dividends out before more funds are added
     */
-    function () external payable {
-        if (payoutInSession) {
-            nextPool += msg.value;
-        } else {
-            currentPool += msg.value;
-        }
-    }
+    function () external payable {}
 
     /** 
      * @notice 'Switch' to activate dividend payout period
@@ -78,8 +72,10 @@ contract FeePool {
      * If the conditions are met (regarding time), anyone can activate a payout
     */
     function activatePayout() external {
-        require(lastPayout + block.timestamp > dividendPayoutInterval,
+        require(block.timestamp > (lastPayout + dividendPayoutInterval),
         "It is not time for Payout Period yet");
+        require(!payoutInSession,
+        "payout already happening");
         payoutInSession = true;
         payoutStart = block.timestamp;
         leftInCurrentPool = currentPool;
@@ -147,5 +143,11 @@ contract FeePool {
         return (lastPayout + dividendPayoutInterval - block.timestamp);
     }
 
-
+    function incrementPool() public {
+        if (payoutInSession) {
+            nextPool += (address(this).balance - currentPool - nextPool);
+        } else {
+            currentPool += (address(this).balance - currentPool);
+        }
+    }
 }
