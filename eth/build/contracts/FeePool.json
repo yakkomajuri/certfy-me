@@ -6997,6 +6997,12 @@
     "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0xF01e61d9B905F75eFaa83A01C3874B545DdB22cE",
+      "transactionHash": "0x04758a085e00e6c24c7ae3491510ef29048537b284f0c4389137c39911a36af7"
+    },
     "1564402568472": {
       "events": {},
       "links": {},
@@ -7024,12 +7030,12 @@
     "1564539801619": {
       "events": {},
       "links": {},
-      "address": "0x36c84cFb4C8384300e816d850f846D673Fb19c54",
-      "transactionHash": "0xf4653b0636b24ab6344fa251b65b0d103ae42f5ab43160a2c650413eef861368"
+      "address": "0xCB3EdD034b0dB68a5F45EDc44b02049165A67042",
+      "transactionHash": "0x1e55667981ed136413ff7dbdfe0c5820c862f1603bb8a92b2dc1b2ba9d5486d7"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-31T02:27:23.091Z",
+  "updatedAt": "2019-07-31T03:17:09.101Z",
   "devdoc": {
     "methods": {
       "activatePayout()": {

@@ -1,1 +1,10 @@
+Network: Ropsten
 
+Addresses
+----------------------------------------------------------------------
+
+Owners: 0x0bea1332a62d4bed0fc447288de5fcf154f76e77
+DocumentRegistration: 0x0d052b8c4beef49fd51fe86ec00c0d8beacc46f8
+CertfyToken: 0x6fdb98201c763b21fc1dd53c3d51fee3aee80c95
+FeePool: 0xeb52f7db3c4b63d739c52692397ff970b2a5b5ea
+Proxy: 0x9cde89b3d20e2b4eaf6e1f5df80592db7340a1d3

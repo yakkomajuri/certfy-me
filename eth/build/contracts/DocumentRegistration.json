@@ -27873,6 +27873,12 @@
     "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0x1D2a26299EBae437dBe924dEAA7A467dbF3fBF19",
+      "transactionHash": "0x030c0fa167e1e280ae5fac4e612bf4f31bb506f7f8c0045828d62d0216306838"
+    },
     "1564354775748": {
       "events": {},
       "links": {},
@@ -27906,12 +27912,12 @@
     "1564539801619": {
       "events": {},
       "links": {},
-      "address": "0xa213d9E56b9b1A388416971bAE91f4c1Fb5786a7",
-      "transactionHash": "0x78ac8f45e336be2e1bd7989ff3f66b39a56e5edc9150731e480271a0ac8a9415"
+      "address": "0x0a0EefCa008A86570cD720C46e680867Ae3A9060",
+      "transactionHash": "0xb2fe39ce585c6d346976b755f31bd5396c8e913a0991af2d85aca86f47076157"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-31T02:27:23.071Z",
+  "updatedAt": "2019-07-31T03:17:09.073Z",
   "devdoc": {
     "methods": {
       "checkTemporary(string,uint32)": {

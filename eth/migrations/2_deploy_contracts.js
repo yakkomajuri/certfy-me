@@ -3,8 +3,6 @@ const Owners = artifacts.require("Owners");
 const CertfyToken = artifacts.require("CertfyToken");
 const FeePool = artifacts.require("FeePool");
 
-// const Proxy = artifacts.require("Proxy");
-
 
 module.exports = function (deployer, network, accounts) {
   // deployer.deploy(FeePool, );

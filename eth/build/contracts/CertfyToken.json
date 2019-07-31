@@ -6862,6 +6862,12 @@
     "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0x139C93BeA6537706C8d6f3eEFBd7dD8fC0d18B3D",
+      "transactionHash": "0x189773b70c913258ba6153dfcb2e1d3dc6013ec14fc767ee49883698f82364fc"
+    },
     "1564402568472": {
       "events": {},
       "links": {},
@@ -6889,12 +6895,12 @@
     "1564539801619": {
       "events": {},
       "links": {},
-      "address": "0x2b13AFeB739558dBc4Acb9e68EaF6B65dAd2d86f",
-      "transactionHash": "0xedd292bb099681e513b0412d4f250caac2fcb406217e68e65af4061108673afa"
+      "address": "0x13D3c31158d8150F06DCDa91Ee7094Ffab9A7D7c",
+      "transactionHash": "0xdc18242b73742c2fce100b9dde5d7affd499f9662a3cbf494b9eb51ec0d18d17"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-31T02:27:23.087Z",
+  "updatedAt": "2019-07-31T03:17:09.094Z",
   "devdoc": {
     "author": "Yakko Majuri",
     "methods": {},
