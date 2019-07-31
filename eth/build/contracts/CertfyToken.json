@@ -6895,12 +6895,12 @@
     "1564539801619": {
       "events": {},
       "links": {},
-      "address": "0x13D3c31158d8150F06DCDa91Ee7094Ffab9A7D7c",
-      "transactionHash": "0xdc18242b73742c2fce100b9dde5d7affd499f9662a3cbf494b9eb51ec0d18d17"
+      "address": "0xbca4ED68895F5d29c9D3Ff9B28b744F0592447da",
+      "transactionHash": "0xfc5a4298d765395df5ff0a8a7679e8f049cfc28baaba42720e20607fc2806d00"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-31T03:17:09.094Z",
+  "updatedAt": "2019-07-31T04:26:15.882Z",
   "devdoc": {
     "author": "Yakko Majuri",
     "methods": {},

@@ -7030,12 +7030,12 @@
     "1564539801619": {
       "events": {},
       "links": {},
-      "address": "0xCB3EdD034b0dB68a5F45EDc44b02049165A67042",
-      "transactionHash": "0x1e55667981ed136413ff7dbdfe0c5820c862f1603bb8a92b2dc1b2ba9d5486d7"
+      "address": "0xB5Ef54C62DEbb94c137F8FaD7517962305E722Bd",
+      "transactionHash": "0xccaf14d194aaacacc50cf581e6fb235522afdda56dacf1d0d9edecb3220d29b3"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-31T03:17:09.101Z",
+  "updatedAt": "2019-07-31T04:26:15.888Z",
   "devdoc": {
     "methods": {
       "activatePayout()": {
