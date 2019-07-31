@@ -61,6 +61,8 @@ contract Storage {
     mapping(string => uint32) temporaryIndex;
     mapping(string => uint32) nameIndex;
 
+    bool emergency = false;
+
     // Used for initialization of the contract, since it should not have a constructor 
     // due to the proxy implementation
     bool ownersSet;
@@ -91,6 +93,11 @@ contract Storage {
     // Calls the separate 'Owners' contract to verify if 'msg.sender' is an owner
     modifier onlyOwners() {
         require(ownerContract.getOwners(msg.sender));
+        _;
+    }
+
+    modifier emergencyStop() {
+        require(!emergency);
         _;
     }
 
@@ -172,7 +179,8 @@ contract DocumentRegistration is Storage {
         bytes32 _fileHash
     )
     external
-    payable {
+    payable 
+    emergencyStop {
         require(msg.value == prices[1],
             "wrong value");
         current.transfer(msg.value/2);
@@ -222,6 +230,7 @@ contract DocumentRegistration is Storage {
     )
     external
     payable
+    emergencyStop
     {
         require(msg.value == prices[2] / 2);
         current.transfer(msg.value/2);
@@ -265,6 +274,7 @@ contract DocumentRegistration is Storage {
     )
     external
     payable
+    emergencyStop
     {
         require(msg.value == prices[2] / 2, 
         "the price aint right");
@@ -339,32 +349,6 @@ contract DocumentRegistration is Storage {
     }
 
     /** 
-     * @notice Allows users to update information about their identity
-     * @param _name Name of the person/entity behind the address
-     * @param _description A field for providing evidence of the identity
-     * @dev Previous identity specified can still be found
-     * @dev Costs a fee to prevent constant identity updates
-    */
-    function updateInfo(
-        string memory _name,
-        string memory _description
-    )
-    public
-    payable {
-        require(msg.value == prices[3]);
-        require(verifiedAddress[msg.sender].isEntity);
-        current.transfer(msg.value/2);
-        address fp = address(feePoolContract);
-        address payable feePool = address(uint160(fp));
-        feePool.transfer(msg.value/2);
-        verifiedAddress[msg.sender].name = _name;
-        verifiedAddress[msg.sender].description = _description;
-        registrants.push(Registrant(_name, _description, msg.sender, true));
-        feePoolContract.incrementPool();
-    }
-
-
-    /** 
      * @notice Checks if two documents (hashes) are the same
      * @param _name Name of the document
      * @param _nameIndex Index of the document
@@ -432,6 +416,10 @@ contract DocumentRegistration is Storage {
             registry[hash].registrant,
             registry[hash].signee
         );
+    }
+
+    function flipEmergencySwitch() external onlyOwners {
+        emergency = !emergency;
     }
 
 }
