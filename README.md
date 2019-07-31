@@ -104,6 +104,49 @@ To use Certfy's most trivial functionalities users need not login. By clicking '
 
 In order to unlock more features, users can then register on the platform. Upon login, they are taken to a User Dashboard where they have an overview of all their registered documents as well as are able to add friends, create multi-sig registrations, use templates and IPFS, etc.
 
+## Tutorial 
+
+**Step 1: MetaMask**
+
+In order to use Certfy the recommended way, you will need the MetaMask extension, or an equivalent Web3-compatible (dApp) browser.
+MetaMask and alternatives provide a gateway for users to interact with EVM-based blockchain protocols (primarily Ethereum, but also ThunderCore and RSK, for example). They allow users to sign transactions and send ether (ETH) directly, without going through an intermediary. MetaMask is a browser extension, and without it, a webpage will either not be able to interact with the blockchain, or will have to do that connection for you, which is less secure for the end user.
+
+To download MetaMask, go to https://metamask.io/.
+Then, launch the extension on your browser and follow the instructions to set-up a wallet. There we go! You’re now ready to continue.
+
+**Step 2: Getting Ether**
+
+For the purposes of this tutorial, we will use Ethereum’s Ropsten network so that you can test the platform without using any real money. You will actually register a document and manage to authenticate it, but Ropsten is a test network that should not be used in production. 
+To get Ropsten Ether, open your MetaMask extension and copy your address by clicking on the account name. It should say “Copy to clipboard” if you hover your cursor over it.
+After copying the address, head over to the following website: https://faucet.ropsten.be/.
+On the website, paste the address and request some RETH. It should shortly arrive in your account. Once you have it, we’re ready to start our registration.
+
+**Step 3: Registration**
+
+First, access the homepage at *localhost:80*.
+
+Then, click on “Begin” or scroll to the bottom of the page. You should see the following:
+
+Once you’re here, it’s pretty self-explanatory. Make sure you switch the MetaMask network to Ropsten, where you have your Ether, and you’re good to go.
+
+Fill in the fields accordingly and hit Register. Description is optional, and in fact, so is uploading a file. You could register just text if you wish.
+
+After clicking the button to “Register”, your MetaMask should have automatically opened up on the screen. If it hasn’t, you can also click on the extension to see your transaction. 
+
+The “Total” will vary depending on how much data you’re registering and what gas price you’re using. If gas price doesn’t mean anything to you, just hit confirm. If it does, you’re welcome to play around with it.
+
+Having hit Confirm, a progress bar should have appeared on the website. Once the transaction is included in a block, the bar should stop moving and you should receive an index for your registration. This index is often just 0 and is used together with the title of your registration to retrieve it, so make sure you write both down! If you don’t want to write down those details for every document you register, you should create an account. If you’re logged in, Certfy saves the title and index for you and you don’t have to worry about it. It will also display all your registrations in one place and allow you to easily verify their data and check the authenticity of documents against them.
+
+**Step 4: Verifying authenticity**
+
+If you got an index on the previous step, congratulations! You now have a file/document/piece of text registered on the blockchain. Now, let’s put it to use. Head over to “Verify” on the top right corner. You should see the following page:
+
+Here you can play around a bit and see what results you get. First, type in the exact title and index of your registration, uploading the same file as you did in the previous step. Clicking “Verify” should prompt a response of “The documents match”.
+(If you didn’t upload a file, this step is of no use to you, but if you log-in, you can retrieve the information you registered).
+Uploading any other file or changing anything on the title or index should give you a different response: “The documents do not match or the wrong information was supplied”.
+
+And there you have it! Your first blockchain document registration and authentication. If you like it, create an account and see what else you can do on the platform. If you use the same address, you should see the document you registered upon logging in. Crazy, right? That’s because the platform is pulling the data associated with your address directly from the chain, not the database. Hence, even registrations you made before being a user on the platform will appear on your Dashboard. 
+
 ## Disclaimer
 
 This project was built **entirely by myself**. However, it was started prior to the beginning of the Bootcamp. For full disclosure, here is a breakdown of what was done before and what was done during the course.
