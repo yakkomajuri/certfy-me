@@ -133,7 +133,7 @@ This project was built **entirely by myself**. However, it was started prior to 
 - Updates to frontend and backend
 - README.md, avoiding_common_attacks.md, design_pattern_decisions.md
 
-P.S. *DocumentRegistration*, *Proxy* and *Owners* contracts are successfully integrated with the frontend, while *CertfyToken* and *FeePool* are not.
+P.S. *DocumentRegistration*, *Proxy* and *Owners* contracts are successfully integrated with the frontend, while *CertfyToken* and *FeePool* are not. The reason for this was that once *DocumentRegistration* was updated to make calls to *FeePool* and *CertfyToken* it no longer worked with the proxy implementation, since a CALL cannot be made after a DELEGATECALL. 
 
 
 
