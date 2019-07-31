@@ -143,6 +143,10 @@ contract FeePool {
         return (lastPayout + dividendPayoutInterval - block.timestamp);
     }
 
+    /**
+     * @notice Updates the pool according to incoming deposits
+     * @dev This function should always be called by other contracts after an ETH transfer
+     */
     function incrementPool() public {
         if (payoutInSession) {
             nextPool += (address(this).balance - currentPool - nextPool);

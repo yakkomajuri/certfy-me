@@ -30,12 +30,12 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"pauseTransfers\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"tokenHolder\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Yakko Majuri\",\"methods\":{},\"title\":\"Fee Pool\"},\"userdoc\":{\"methods\":{},\"notice\":\"An ETH pool which receives funds (fees) from the DocumentRegistration contract and distributes to token holders via dividends\"}},\"settings\":{\"compilationTarget\":{\"/Users/yakkomajuri/GitHub/bootcamp-finalproject/eth/contracts/FeePool.sol\":\"CertfyToken\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yakkomajuri/GitHub/bootcamp-finalproject/eth/contracts/FeePool.sol\":{\"keccak256\":\"0x1415d63a45dc1035d364492cad0649128e86bb2923cec721b839e88c93412244\",\"urls\":[\"bzzr://fbf47f19bc083fbe6a59dbd57e62f14b039754d9ef5074669ed4df2a7a6b270a\"]},\"/Users/yakkomajuri/GitHub/bootcamp-finalproject/eth/lib/math/SafeMath.sol\":{\"keccak256\":\"0x4ccf2d7b51873db1ccfd54ca2adae5eac3b184f9699911ed4490438419f1c690\",\"urls\":[\"bzzr://1604f5b6d6e916c154efd8c6720cda069e5ba32dfa0a9dedf2b42e5b02d07f89\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5060c98061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806347af995714603757806370a0823114603f575b600080fd5b603d6094565b005b607e60048036036020811015605357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506096565b6040518082815260200191505060405180910390f35b565b600091905056fea165627a7a723058201f03fa0d34083800172046a4ed4db2f745c7c9614e057a8c06ca1fac49a5e17c0029",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c806347af995714603757806370a0823114603f575b600080fd5b603d6094565b005b607e60048036036020811015605357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506096565b6040518082815260200191505060405180910390f35b565b600091905056fea165627a7a723058201f03fa0d34083800172046a4ed4db2f745c7c9614e057a8c06ca1fac49a5e17c0029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"pauseTransfers\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"tokenHolder\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Yakko Majuri\",\"methods\":{},\"title\":\"Fee Pool\"},\"userdoc\":{\"methods\":{},\"notice\":\"An ETH pool which receives funds (fees) from the DocumentRegistration contract and distributes to token holders via dividends\"}},\"settings\":{\"compilationTarget\":{\"/Users/yakkomajuri/GitHub/bootcamp-finalproject/eth/contracts/FeePool.sol\":\"CertfyToken\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yakkomajuri/GitHub/bootcamp-finalproject/eth/contracts/FeePool.sol\":{\"keccak256\":\"0xa72f83b746f418ea7c8d7b7923ef03781c8f61a106e57c7ca3d45b8d85db34c0\",\"urls\":[\"bzzr://4419242768b8e3a6924a57b72468e571dce6d538dc26af29dbecc1bb0a7c0519\"]},\"/Users/yakkomajuri/GitHub/bootcamp-finalproject/eth/lib/math/SafeMath.sol\":{\"keccak256\":\"0x4ccf2d7b51873db1ccfd54ca2adae5eac3b184f9699911ed4490438419f1c690\",\"urls\":[\"bzzr://1604f5b6d6e916c154efd8c6720cda069e5ba32dfa0a9dedf2b42e5b02d07f89\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060c98061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806347af995714603757806370a0823114603f575b600080fd5b603d6094565b005b607e60048036036020811015605357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506096565b6040518082815260200191505060405180910390f35b565b600091905056fea165627a7a723058209303fef04611bae9b528f5a1225f3ef4da492326368dae544804633cd93524f90029",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c806347af995714603757806370a0823114603f575b600080fd5b603d6094565b005b607e60048036036020811015605357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506096565b6040518082815260200191505060405180910390f35b565b600091905056fea165627a7a723058209303fef04611bae9b528f5a1225f3ef4da492326368dae544804633cd93524f90029",
   "sourceMap": "250:143:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;250:143:2;;;;;;;",
   "deployedSourceMap": "250:143:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;250:143:2;;;;;;;;;;;;;;;;;;;;;;;;355:35;;;:::i;:::-;;278:72;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;278:72:2;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;355:35;:::o;278:72::-;339:7;278:72;;;:::o",
-  "source": "pragma solidity^0.5.0;\n\nimport \"../lib/math/SafeMath.sol\";\n\n/** \n * @title Fee Pool\n * @author Yakko Majuri\n * @notice An ETH pool which receives funds (fees) from the DocumentRegistration contract and distributes to token holders via dividends\n*/\n\n\ncontract CertfyToken {\n\n    function balanceOf(address tokenHolder) public view returns (uint256) {}\n    function pauseTransfers() public {}\n\n}\n\ncontract FeePool {\n\n    // ERC777 token contract address\n    CertfyToken public token;\n\n    // Prevent overflow/underflow\n    using SafeMath for uint256;\n\n    // Establishes the size of the different pools\n    uint public currentPool;\n    uint public leftInCurrentPool;\n\n    // For funds deposited during a dividend payout period\n    uint public nextPool;\n\n    // Values in reality are '2 days' and '30 days', respectively\n    // Lower values for test purposes\n    uint constant payoutPeriod = 0;\n    uint constant dividendPayoutInterval = 1;\n\n    // Number of the current payout\n    uint payoutIndex;\n\n    // Coordinate payout time constraints\n    uint lastPayout;\n    uint payoutStart;\n    bool public payoutInSession;\n\n    // Total supply needed to determine the share of supply ownerd by each token holder\n    uint public tokenSupply;\n\n    // For contract initialization\n    bool tokenSet = false;\n\n    // Double mapping which ensure a user does not receive dividends twice for a given period\n    mapping(address => mapping(uint => bool)) receivedDividends;\n\n\n    constructor() public {\n        lastPayout = block.timestamp;\n    }\n\n    /** \n     * @notice Fallback function adds funds to the pool once they are received\n     * @dev Rolls funds over to the pool of the next period if they are deposited during a dividend payout\n     * This happens because some users may have already taken dividends out before more funds are added\n    */\n    function () external payable {}\n\n    /** \n     * @notice 'Switch' to activate dividend payout period\n     * @dev Deliberately left open for any address to call\n     * This prevents over-reliance on a centralizing agent to activate a payout\n     * If the conditions are met (regarding time), anyone can activate a payout\n    */\n    function activatePayout() external {\n        require(block.timestamp > (lastPayout + dividendPayoutInterval),\n        \"It is not time for Payout Period yet\");\n        require(!payoutInSession,\n        \"payout already happening\");\n        payoutInSession = true;\n        payoutStart = block.timestamp;\n        leftInCurrentPool = currentPool;\n        // token.pauseTransfers();\n    }\n\n    /** \n     * @notice 'Switch' to end dividend payout period\n     * @dev Deliberately left open for any address to call\n     * This prevents over-reliance on a centralizing agent to end a payout\n     * If the conditions are met (regarding time), anyone can end a payout period\n     * Incentive to end the period is starting the countdown to the new payout with a fresh pool\n     * @dev Dividends not collected roll over to the next period\n    */\n    function endPayoutPeriod() external {\n        /*\n        require(payoutInSession && (block.timestamp - payoutStart) > payoutPeriod,\n        \"Not ready to leave payout period yet\");\n        */\n        payoutInSession = false;\n        lastPayout = block.timestamp;\n        payoutStart = 0;\n        currentPool = leftInCurrentPool.add(nextPool);\n        nextPool = 0;\n        leftInCurrentPool = 0;\n        payoutIndex++;\n        // token.pauseTransfers();\n    }\n\n    /** \n     * @notice Allows users to withdraw their designated dividends for the period\n     * @dev dividendsAllocated is computed by the percentage of all tokens owned by a user\n     * multiplied by the total value of the pool in ETH\n     * @dev Users can only collect dividends once per period\n     * Dividends not collected will roll over to the pool of the next period\n     * @dev Users have t = payoutPeriod to withdraw their dividends before the payout \n     * period can be closed and their dividends roll over\n    */\n    function withdrawDividends() external {\n        require(!receivedDividends[msg.sender][payoutIndex],\n        \"User already withdrew dividends this period\");\n        require(payoutInSession, \"It is not a payout period yet\");\n        receivedDividends[msg.sender][payoutIndex] = true;\n        uint balance = token.balanceOf(msg.sender);\n        uint dividendsAllocated = currentPool.mul(balance)/tokenSupply;\n        leftInCurrentPool = leftInCurrentPool.sub(dividendsAllocated);\n        msg.sender.transfer(dividendsAllocated);\n    }\n\n    /** \n     * @notice Sets the CertfyToken contract address - Used for initialization\n    */\n    function setToken(address _token, uint _tokenSupply) public {\n        require(!tokenSet);\n        tokenSet = true;\n        token = CertfyToken(_token);\n        tokenSupply = _tokenSupply;\n    }\n\n    /** \n     * @notice Informs users when the next payout period can begin\n     * Can be used by a client to display a countdown\n    */\n    function nextPayoutPeriod() external view returns(uint) {\n        return (lastPayout + dividendPayoutInterval - block.timestamp);\n    }\n\n    function incrementPool() public {\n        if (payoutInSession) {\n            nextPool += (address(this).balance - currentPool - nextPool);\n        } else {\n            currentPool += (address(this).balance - currentPool);\n        }\n    }\n}",
+  "source": "pragma solidity^0.5.0;\n\nimport \"../lib/math/SafeMath.sol\";\n\n/** \n * @title Fee Pool\n * @author Yakko Majuri\n * @notice An ETH pool which receives funds (fees) from the DocumentRegistration contract and distributes to token holders via dividends\n*/\n\n\ncontract CertfyToken {\n\n    function balanceOf(address tokenHolder) public view returns (uint256) {}\n    function pauseTransfers() public {}\n\n}\n\ncontract FeePool {\n\n    // ERC777 token contract address\n    CertfyToken public token;\n\n    // Prevent overflow/underflow\n    using SafeMath for uint256;\n\n    // Establishes the size of the different pools\n    uint public currentPool;\n    uint public leftInCurrentPool;\n\n    // For funds deposited during a dividend payout period\n    uint public nextPool;\n\n    // Values in reality are '2 days' and '30 days', respectively\n    // Lower values for test purposes\n    uint constant payoutPeriod = 0;\n    uint constant dividendPayoutInterval = 1;\n\n    // Number of the current payout\n    uint payoutIndex;\n\n    // Coordinate payout time constraints\n    uint lastPayout;\n    uint payoutStart;\n    bool public payoutInSession;\n\n    // Total supply needed to determine the share of supply ownerd by each token holder\n    uint public tokenSupply;\n\n    // For contract initialization\n    bool tokenSet = false;\n\n    // Double mapping which ensure a user does not receive dividends twice for a given period\n    mapping(address => mapping(uint => bool)) receivedDividends;\n\n\n    constructor() public {\n        lastPayout = block.timestamp;\n    }\n\n    /** \n     * @notice Fallback function adds funds to the pool once they are received\n     * @dev Rolls funds over to the pool of the next period if they are deposited during a dividend payout\n     * This happens because some users may have already taken dividends out before more funds are added\n    */\n    function () external payable {}\n\n    /** \n     * @notice 'Switch' to activate dividend payout period\n     * @dev Deliberately left open for any address to call\n     * This prevents over-reliance on a centralizing agent to activate a payout\n     * If the conditions are met (regarding time), anyone can activate a payout\n    */\n    function activatePayout() external {\n        require(block.timestamp > (lastPayout + dividendPayoutInterval),\n        \"It is not time for Payout Period yet\");\n        require(!payoutInSession,\n        \"payout already happening\");\n        payoutInSession = true;\n        payoutStart = block.timestamp;\n        leftInCurrentPool = currentPool;\n        // token.pauseTransfers();\n    }\n\n    /** \n     * @notice 'Switch' to end dividend payout period\n     * @dev Deliberately left open for any address to call\n     * This prevents over-reliance on a centralizing agent to end a payout\n     * If the conditions are met (regarding time), anyone can end a payout period\n     * Incentive to end the period is starting the countdown to the new payout with a fresh pool\n     * @dev Dividends not collected roll over to the next period\n    */\n    function endPayoutPeriod() external {\n        /*\n        require(payoutInSession && (block.timestamp - payoutStart) > payoutPeriod,\n        \"Not ready to leave payout period yet\");\n        */\n        payoutInSession = false;\n        lastPayout = block.timestamp;\n        payoutStart = 0;\n        currentPool = leftInCurrentPool.add(nextPool);\n        nextPool = 0;\n        leftInCurrentPool = 0;\n        payoutIndex++;\n        // token.pauseTransfers();\n    }\n\n    /** \n     * @notice Allows users to withdraw their designated dividends for the period\n     * @dev dividendsAllocated is computed by the percentage of all tokens owned by a user\n     * multiplied by the total value of the pool in ETH\n     * @dev Users can only collect dividends once per period\n     * Dividends not collected will roll over to the pool of the next period\n     * @dev Users have t = payoutPeriod to withdraw their dividends before the payout \n     * period can be closed and their dividends roll over\n    */\n    function withdrawDividends() external {\n        require(!receivedDividends[msg.sender][payoutIndex],\n        \"User already withdrew dividends this period\");\n        require(payoutInSession, \"It is not a payout period yet\");\n        receivedDividends[msg.sender][payoutIndex] = true;\n        uint balance = token.balanceOf(msg.sender);\n        uint dividendsAllocated = currentPool.mul(balance)/tokenSupply;\n        leftInCurrentPool = leftInCurrentPool.sub(dividendsAllocated);\n        msg.sender.transfer(dividendsAllocated);\n    }\n\n    /** \n     * @notice Sets the CertfyToken contract address - Used for initialization\n    */\n    function setToken(address _token, uint _tokenSupply) public {\n        require(!tokenSet);\n        tokenSet = true;\n        token = CertfyToken(_token);\n        tokenSupply = _tokenSupply;\n    }\n\n    /** \n     * @notice Informs users when the next payout period can begin\n     * Can be used by a client to display a countdown\n    */\n    function nextPayoutPeriod() external view returns(uint) {\n        return (lastPayout + dividendPayoutInterval - block.timestamp);\n    }\n\n    /**\n     * @notice Updates the pool according to incoming deposits\n     * @dev This function should always be called by other contracts after an ETH transfer\n     */\n    function incrementPool() public {\n        if (payoutInSession) {\n            nextPool += (address(this).balance - currentPool - nextPool);\n        } else {\n            currentPool += (address(this).balance - currentPool);\n        }\n    }\n}",
   "sourcePath": "/Users/yakkomajuri/GitHub/bootcamp-finalproject/eth/contracts/FeePool.sol",
   "ast": {
     "absolutePath": "/Users/yakkomajuri/GitHub/bootcamp-finalproject/eth/contracts/FeePool.sol",
@@ -3049,7 +3049,7 @@
             "body": {
               "id": 2305,
               "nodeType": "Block",
-              "src": "5143:205:2",
+              "src": "5313:205:2",
               "statements": [
                 {
                   "condition": {
@@ -3059,7 +3059,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 2081,
-                    "src": "5157:15:2",
+                    "src": "5327:15:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -3068,7 +3068,7 @@
                   "falseBody": {
                     "id": 2303,
                     "nodeType": "Block",
-                    "src": "5265:77:2",
+                    "src": "5435:77:2",
                     "statements": [
                       {
                         "expression": {
@@ -3085,7 +3085,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 2063,
-                            "src": "5279:11:2",
+                            "src": "5449:11:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -3119,7 +3119,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 3389,
-                                        "src": "5303:4:2",
+                                        "src": "5473:4:2",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_contract$_FeePool_$2307",
                                           "typeString": "contract FeePool"
@@ -3139,7 +3139,7 @@
                                       "isPure": true,
                                       "lValueRequested": false,
                                       "nodeType": "ElementaryTypeNameExpression",
-                                      "src": "5295:7:2",
+                                      "src": "5465:7:2",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_type$_t_address_$",
                                         "typeString": "type(address)"
@@ -3154,7 +3154,7 @@
                                     "lValueRequested": false,
                                     "names": [],
                                     "nodeType": "FunctionCall",
-                                    "src": "5295:13:2",
+                                    "src": "5465:13:2",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address_payable",
                                       "typeString": "address payable"
@@ -3168,7 +3168,7 @@
                                   "memberName": "balance",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": null,
-                                  "src": "5295:21:2",
+                                  "src": "5465:21:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -3183,13 +3183,13 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 2063,
-                                  "src": "5319:11:2",
+                                  "src": "5489:11:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
                                   }
                                 },
-                                "src": "5295:35:2",
+                                "src": "5465:35:2",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -3203,13 +3203,13 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "TupleExpression",
-                            "src": "5294:37:2",
+                            "src": "5464:37:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "5279:52:2",
+                          "src": "5449:52:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -3217,17 +3217,17 @@
                         },
                         "id": 2302,
                         "nodeType": "ExpressionStatement",
-                        "src": "5279:52:2"
+                        "src": "5449:52:2"
                       }
                     ]
                   },
                   "id": 2304,
                   "nodeType": "IfStatement",
-                  "src": "5153:189:2",
+                  "src": "5323:189:2",
                   "trueBody": {
                     "id": 2292,
                     "nodeType": "Block",
-                    "src": "5174:85:2",
+                    "src": "5344:85:2",
                     "statements": [
                       {
                         "expression": {
@@ -3244,7 +3244,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 2067,
-                            "src": "5188:8:2",
+                            "src": "5358:8:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -3289,7 +3289,7 @@
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
                                           "referencedDeclaration": 3389,
-                                          "src": "5209:4:2",
+                                          "src": "5379:4:2",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_contract$_FeePool_$2307",
                                             "typeString": "contract FeePool"
@@ -3309,7 +3309,7 @@
                                         "isPure": true,
                                         "lValueRequested": false,
                                         "nodeType": "ElementaryTypeNameExpression",
-                                        "src": "5201:7:2",
+                                        "src": "5371:7:2",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_type$_t_address_$",
                                           "typeString": "type(address)"
@@ -3324,7 +3324,7 @@
                                       "lValueRequested": false,
                                       "names": [],
                                       "nodeType": "FunctionCall",
-                                      "src": "5201:13:2",
+                                      "src": "5371:13:2",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_address_payable",
                                         "typeString": "address payable"
@@ -3338,7 +3338,7 @@
                                     "memberName": "balance",
                                     "nodeType": "MemberAccess",
                                     "referencedDeclaration": null,
-                                    "src": "5201:21:2",
+                                    "src": "5371:21:2",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
                                       "typeString": "uint256"
@@ -3353,13 +3353,13 @@
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
                                     "referencedDeclaration": 2063,
-                                    "src": "5225:11:2",
+                                    "src": "5395:11:2",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
                                       "typeString": "uint256"
                                     }
                                   },
-                                  "src": "5201:35:2",
+                                  "src": "5371:35:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -3374,13 +3374,13 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 2067,
-                                  "src": "5239:8:2",
+                                  "src": "5409:8:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
                                   }
                                 },
-                                "src": "5201:46:2",
+                                "src": "5371:46:2",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -3394,13 +3394,13 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "TupleExpression",
-                            "src": "5200:48:2",
+                            "src": "5370:48:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "5188:60:2",
+                          "src": "5358:60:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -3408,14 +3408,14 @@
                         },
                         "id": 2291,
                         "nodeType": "ExpressionStatement",
-                        "src": "5188:60:2"
+                        "src": "5358:60:2"
                       }
                     ]
                   }
                 }
               ]
             },
-            "documentation": null,
+            "documentation": "@notice Updates the pool according to incoming deposits\n@dev This function should always be called by other contracts after an ETH transfer",
             "id": 2306,
             "implemented": true,
             "kind": "function",
@@ -3426,26 +3426,26 @@
               "id": 2277,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5133:2:2"
+              "src": "5303:2:2"
             },
             "returnParameters": {
               "id": 2278,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5143:0:2"
+              "src": "5313:0:2"
             },
             "scope": 2307,
-            "src": "5111:237:2",
+            "src": "5281:237:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 2308,
-        "src": "395:4955:2"
+        "src": "395:5125:2"
       }
     ],
-    "src": "0:5350:2"
+    "src": "0:5520:2"
   },
   "legacyAST": {
     "absolutePath": "/Users/yakkomajuri/GitHub/bootcamp-finalproject/eth/contracts/FeePool.sol",
@@ -6459,7 +6459,7 @@
             "body": {
               "id": 2305,
               "nodeType": "Block",
-              "src": "5143:205:2",
+              "src": "5313:205:2",
               "statements": [
                 {
                   "condition": {
@@ -6469,7 +6469,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 2081,
-                    "src": "5157:15:2",
+                    "src": "5327:15:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -6478,7 +6478,7 @@
                   "falseBody": {
                     "id": 2303,
                     "nodeType": "Block",
-                    "src": "5265:77:2",
+                    "src": "5435:77:2",
                     "statements": [
                       {
                         "expression": {
@@ -6495,7 +6495,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 2063,
-                            "src": "5279:11:2",
+                            "src": "5449:11:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -6529,7 +6529,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 3389,
-                                        "src": "5303:4:2",
+                                        "src": "5473:4:2",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_contract$_FeePool_$2307",
                                           "typeString": "contract FeePool"
@@ -6549,7 +6549,7 @@
                                       "isPure": true,
                                       "lValueRequested": false,
                                       "nodeType": "ElementaryTypeNameExpression",
-                                      "src": "5295:7:2",
+                                      "src": "5465:7:2",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_type$_t_address_$",
                                         "typeString": "type(address)"
@@ -6564,7 +6564,7 @@
                                     "lValueRequested": false,
                                     "names": [],
                                     "nodeType": "FunctionCall",
-                                    "src": "5295:13:2",
+                                    "src": "5465:13:2",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address_payable",
                                       "typeString": "address payable"
@@ -6578,7 +6578,7 @@
                                   "memberName": "balance",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": null,
-                                  "src": "5295:21:2",
+                                  "src": "5465:21:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -6593,13 +6593,13 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 2063,
-                                  "src": "5319:11:2",
+                                  "src": "5489:11:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
                                   }
                                 },
-                                "src": "5295:35:2",
+                                "src": "5465:35:2",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -6613,13 +6613,13 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "TupleExpression",
-                            "src": "5294:37:2",
+                            "src": "5464:37:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "5279:52:2",
+                          "src": "5449:52:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -6627,17 +6627,17 @@
                         },
                         "id": 2302,
                         "nodeType": "ExpressionStatement",
-                        "src": "5279:52:2"
+                        "src": "5449:52:2"
                       }
                     ]
                   },
                   "id": 2304,
                   "nodeType": "IfStatement",
-                  "src": "5153:189:2",
+                  "src": "5323:189:2",
                   "trueBody": {
                     "id": 2292,
                     "nodeType": "Block",
-                    "src": "5174:85:2",
+                    "src": "5344:85:2",
                     "statements": [
                       {
                         "expression": {
@@ -6654,7 +6654,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 2067,
-                            "src": "5188:8:2",
+                            "src": "5358:8:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -6699,7 +6699,7 @@
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
                                           "referencedDeclaration": 3389,
-                                          "src": "5209:4:2",
+                                          "src": "5379:4:2",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_contract$_FeePool_$2307",
                                             "typeString": "contract FeePool"
@@ -6719,7 +6719,7 @@
                                         "isPure": true,
                                         "lValueRequested": false,
                                         "nodeType": "ElementaryTypeNameExpression",
-                                        "src": "5201:7:2",
+                                        "src": "5371:7:2",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_type$_t_address_$",
                                           "typeString": "type(address)"
@@ -6734,7 +6734,7 @@
                                       "lValueRequested": false,
                                       "names": [],
                                       "nodeType": "FunctionCall",
-                                      "src": "5201:13:2",
+                                      "src": "5371:13:2",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_address_payable",
                                         "typeString": "address payable"
@@ -6748,7 +6748,7 @@
                                     "memberName": "balance",
                                     "nodeType": "MemberAccess",
                                     "referencedDeclaration": null,
-                                    "src": "5201:21:2",
+                                    "src": "5371:21:2",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
                                       "typeString": "uint256"
@@ -6763,13 +6763,13 @@
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
                                     "referencedDeclaration": 2063,
-                                    "src": "5225:11:2",
+                                    "src": "5395:11:2",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
                                       "typeString": "uint256"
                                     }
                                   },
-                                  "src": "5201:35:2",
+                                  "src": "5371:35:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -6784,13 +6784,13 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 2067,
-                                  "src": "5239:8:2",
+                                  "src": "5409:8:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
                                   }
                                 },
-                                "src": "5201:46:2",
+                                "src": "5371:46:2",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -6804,13 +6804,13 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "TupleExpression",
-                            "src": "5200:48:2",
+                            "src": "5370:48:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "5188:60:2",
+                          "src": "5358:60:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -6818,14 +6818,14 @@
                         },
                         "id": 2291,
                         "nodeType": "ExpressionStatement",
-                        "src": "5188:60:2"
+                        "src": "5358:60:2"
                       }
                     ]
                   }
                 }
               ]
             },
-            "documentation": null,
+            "documentation": "@notice Updates the pool according to incoming deposits\n@dev This function should always be called by other contracts after an ETH transfer",
             "id": 2306,
             "implemented": true,
             "kind": "function",
@@ -6836,26 +6836,26 @@
               "id": 2277,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5133:2:2"
+              "src": "5303:2:2"
             },
             "returnParameters": {
               "id": 2278,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5143:0:2"
+              "src": "5313:0:2"
             },
             "scope": 2307,
-            "src": "5111:237:2",
+            "src": "5281:237:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 2308,
-        "src": "395:4955:2"
+        "src": "395:5125:2"
       }
     ],
-    "src": "0:5350:2"
+    "src": "0:5520:2"
   },
   "compiler": {
     "name": "solc",
@@ -6889,12 +6889,12 @@
     "1564539801619": {
       "events": {},
       "links": {},
-      "address": "0xB5C663c4ee3ea36FAd148494c19ba08B35dC4Bea",
-      "transactionHash": "0x4cd8daa9b23862edd1135dd3a6a70b17e5a9aa7934513495df053739426ee665"
+      "address": "0x2b13AFeB739558dBc4Acb9e68EaF6B65dAd2d86f",
+      "transactionHash": "0xedd292bb099681e513b0412d4f250caac2fcb406217e68e65af4061108673afa"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-31T02:23:35.282Z",
+  "updatedAt": "2019-07-31T02:27:23.087Z",
   "devdoc": {
     "author": "Yakko Majuri",
     "methods": {},

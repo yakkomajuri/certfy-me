@@ -1756,12 +1756,12 @@
     "1564539801619": {
       "events": {},
       "links": {},
-      "address": "0x3917B15d18C2A63692A0D2056EfeAA127F39A743",
-      "transactionHash": "0xc9d276ed8d1d99a2627ee85ae210d65bc115b56b405c392448ab780c90ef937b"
+      "address": "0x4305418A8F35CAe0F1d35A3213126ba8aAd67844",
+      "transactionHash": "0xe7d6a89e27c3f214e9be8e13ce10da70bde112b78efb94809b53ef6088988ab2"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-31T02:23:35.280Z",
+  "updatedAt": "2019-07-31T02:27:23.085Z",
   "devdoc": {
     "author": "Yakko Majuri",
     "methods": {},
