@@ -15,7 +15,6 @@ Certfy's features:
 2. **Multi-signature registration**: Create a record of multiple parties attesting to the registration of a file/document. 
 3. **Friends**: Add friends to create multi-sig registrations by using human-readable usernames rather than Ethereum addresses.
 4. **Templates**: Users can create documents using Certfy's own templates or upload their own for simple creation later.
-5. **IPFS Document Storage**: A user can choose to have a document encrypted and stored on IPFS.
 6. **Certfy Token**: An ERC-777 token that cannot be purchased via crowdsale. The token is given to those who use use Certfy and entitles them to a portion of the transaction fees of the platform.
 7. **Upgradability**: Certfy uses a proxy implementation to ensure persistency of important storage while allowing for upgrades to the platform.
 8. **Ethereum login**: Instead of having to always input username and password, users can login directly using their Ethereum address. The address is pulled from MetaMask automatically if the extension is unlocked.
@@ -130,11 +129,11 @@ This project was built **entirely by myself**. However, it was started prior to 
 - Commenting of all contracts according to NatSpec Format
 - Truffle tests for all contracts
 - Redeployment to Ropsten testnet
-- IPFS integration
 - Password reset functionality
 - Updates to frontend and backend
 - README.md, avoiding_common_attacks.md, design_pattern_decisions.md
 
+P.S. *DocumentRegistration*, *Proxy* and *Owners* contracts are successfully integrated with the frontend, while *CertfyToken* and *FeePool* are not.
 
 
 
