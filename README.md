@@ -1,4 +1,5 @@
-# Certfy (ConsenSys Ethereum Developer Bootcamp Final Project - Grade: 100%)
+# Certfy 
+### ConsenSys Ethereum Developer Bootcamp Final Project - Grade: 100%
 
 ![Certfy Logo](https://github.com/yakkomajuri/bootcamp-finalproject/blob/master/assets/logo.png?raw=true)
 
