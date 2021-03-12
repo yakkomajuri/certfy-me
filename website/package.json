@@ -30,7 +30,7 @@
     "http": "0.0.0",
     "http-errors": "~1.6.2",
     "jade": "^1.11.0",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "mongodb": "*",
     "mongoose": "*",
     "morgan": "~1.9.0",
